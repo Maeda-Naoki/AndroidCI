@@ -2,3 +2,9 @@ debugBuild:
   stage: debug
   script:
     - ./gradlew assembleDebug
+  rules:
+    # Commit to main / develop branch
+    - if: $CI_COMMIT_BRANCH == "main" ||
+          $CI_COMMIT_BRANCH == "develop"
+      when: always
+      allow_failure: false
