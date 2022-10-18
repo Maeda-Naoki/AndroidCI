@@ -1,0 +1,2 @@
+default:
+  image: openjdk:11.0.16-slim-buster
