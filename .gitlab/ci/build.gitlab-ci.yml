@@ -1,0 +1,24 @@
+debugBuild:
+  stage: debug
+  script:
+    - ./gradlew assembleDebug
+  rules:
+    # Commit to main / develop branch
+    - if: $CI_COMMIT_BRANCH == "main" ||
+          $CI_COMMIT_BRANCH == "develop"
+      when: always
+      allow_failure: false
+    # Commit to feature branch
+    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
+      when: manual
+      allow_failure: true
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+      when: always
+      allow_failure: false
+    # When the MR source is a feature branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+      when: manual
+      allow_failure: true
+
