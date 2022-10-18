@@ -12,3 +12,8 @@ debugBuild:
     - if: '$CI_COMMIT_BRANCH =~ /^feature/'
       when: manual
       allow_failure: true
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+      when: always
+      allow_failure: false
