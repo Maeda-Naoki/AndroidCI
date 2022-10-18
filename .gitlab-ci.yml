@@ -1,2 +1,13 @@
 default:
   image: openjdk:11.0.16-slim-buster
+
+variables:
+    # Compile SDK version
+    ANDROID_COMPILE_SDK: "32"
+
+    # Android SDK Build-Tools version
+    ANDROID_BUILD_TOOLS: "33.0.0"
+
+    # Command-line tools version
+    # Ref : https://developer.android.com/studio#downloads
+    ANDROID_SDK_TOOLS: "8512546"
