@@ -22,3 +22,5 @@ debugBuild:
       when: manual
       allow_failure: true
 
+releaseBuild:
+  stage: release
