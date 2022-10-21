@@ -31,6 +31,7 @@ variables:
 
 stages:
   - debug
+  - release
 
 include:
   - local: .gitlab/ci/*.gitlab-ci.yml
