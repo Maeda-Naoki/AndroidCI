@@ -27,6 +27,10 @@ releaseBuild:
   script:
     - echo $KEYSTORE_FILE_BASE64 | base64 -d > release.keystore.jks
     - ./gradlew  assembleRelease
+  artifacts:
+    name: app-release-$CI_COMMIT_SHA
+    paths:
+      - ./app/build/outputs/apk/release/*.apk
   rules:
     # Commit to main branch
     - if: $CI_COMMIT_BRANCH == "main"
