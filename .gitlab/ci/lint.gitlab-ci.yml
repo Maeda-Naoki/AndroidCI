@@ -1,0 +1,19 @@
+ktlint:
+  stage: debug
+  script:
+    - ./gradlew ktlintCheck
+  rules:
+    # Commit to main / develop branch
+    - if: $CI_COMMIT_BRANCH == "main" ||
+          $CI_COMMIT_BRANCH == "develop"
+      when: manual
+    # Commit to feature branch
+    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
+      when: always
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+      when: always
+    # When the MR source is a feature branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+      when: always
