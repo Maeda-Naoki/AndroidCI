@@ -34,7 +34,7 @@ releaseBuild:
   rules:
     # Commit to main branch
     - if: $CI_COMMIT_BRANCH == "main"
-      when: always
+      when: on_success
       allow_failure: false
     # Commit to feature branch
     - if: '$CI_COMMIT_BRANCH =~ /^feature/'
