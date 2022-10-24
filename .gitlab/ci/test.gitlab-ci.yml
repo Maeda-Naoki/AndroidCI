@@ -1,0 +1,19 @@
+unitTest:
+  stage: test
+  script:
+    - ./gradlew testDebugUnitTest
+  artifacts:
+    name: unit-test-$CI_COMMIT_SHA
+    paths:
+      - app/build/reports/tests/testDebugUnitTest/
+  rules:
+    # Commit to main / develop branch
+    - if: $CI_COMMIT_BRANCH == "main" ||
+          $CI_COMMIT_BRANCH == "develop"
+    # Commit to feature branch
+    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    # When the MR source is a feature branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
