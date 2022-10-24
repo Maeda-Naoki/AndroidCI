@@ -12,3 +12,6 @@ unitTest:
           $CI_COMMIT_BRANCH == "develop"
     # Commit to feature branch
     - if: '$CI_COMMIT_BRANCH =~ /^feature/'
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
