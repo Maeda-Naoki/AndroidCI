@@ -2,3 +2,7 @@ unitTest:
   stage: test
   script:
     - ./gradlew testDebugUnitTest
+  artifacts:
+    name: unit-test-$CI_COMMIT_SHA
+    paths:
+      - app/build/reports/tests/testDebugUnitTest/
