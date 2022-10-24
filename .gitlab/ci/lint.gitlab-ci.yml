@@ -2,3 +2,8 @@ ktlint:
   stage: debug
   script:
     - ./gradlew ktlintCheck
+  rules:
+    # Commit to main / develop branch
+    - if: $CI_COMMIT_BRANCH == "main" ||
+          $CI_COMMIT_BRANCH == "develop"
+      when: manual
