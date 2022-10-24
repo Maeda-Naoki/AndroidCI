@@ -10,7 +10,7 @@ debugBuild:
       allow_failure: false
     # Commit to feature branch
     - if: '$CI_COMMIT_BRANCH =~ /^feature/'
-      when: manual
+      when: always
       allow_failure: true
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
