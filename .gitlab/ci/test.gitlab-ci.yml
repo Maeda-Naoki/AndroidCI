@@ -1,0 +1,4 @@
+unitTest:
+  stage: test
+  script:
+    - ./gradlew testDebugUnitTest
