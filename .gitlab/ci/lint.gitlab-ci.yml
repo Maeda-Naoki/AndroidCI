@@ -7,3 +7,6 @@ ktlint:
     - if: $CI_COMMIT_BRANCH == "main" ||
           $CI_COMMIT_BRANCH == "develop"
       when: manual
+    # Commit to feature branch
+    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
+      when: always
