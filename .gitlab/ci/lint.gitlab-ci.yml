@@ -1,0 +1,4 @@
+ktlint:
+  stage: debug
+  script:
+    - ./gradlew ktlintCheck
