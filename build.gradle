@@ -5,3 +5,17 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
     id "org.jlleitschuh.gradle.ktlint" version "11.0.0"
 }
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+    ktlint {
+        // Ref : https://github.com/JLLeitschuh/ktlint-gradle/blob/master/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
+        debug = true                // Enable debug mode.
+        verbose = true              // Enable verbose mode.
+        android = true              // Enable android mode.
+        outputToConsole = true      // Enable console output mode.
+        coloredOutput = true        // Enabled colored output to console.
+        outputColorName = "RED"     // Specify the color of the terminal output.
+        ignoreFailures = true       // Keep the build going even with warnings.
+    }
+}
