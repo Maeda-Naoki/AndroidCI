@@ -17,3 +17,8 @@ ktlint:
     # When the MR source is a feature branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
       when: always
+
+androidLint:
+  stage: debug
+  script:
+    - ./gradlew lint
