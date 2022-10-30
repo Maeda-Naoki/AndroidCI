@@ -19,6 +19,7 @@ subprojects {
         ignoreFailures = true       // Keep the build going even with warnings.
         reporters {
             reporter "plain"        // Enable console reporter
+            reporter "checkstyle"   // Enable checkstyle reporter
         }
     }
 }
