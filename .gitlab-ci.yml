@@ -1,5 +1,5 @@
 default:
-  image: openjdk:11.0.16-slim-buster
+  image: openjdk:11.0.16-slim-bullseye
 
   before_script:
     - apt-get --quiet update --yes
