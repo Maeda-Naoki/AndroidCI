@@ -21,7 +21,9 @@ ktlint:
 androidLint:
   stage: debug
   script:
+    - bundle install
     - ./gradlew lint
+    - bundle exec danger
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
