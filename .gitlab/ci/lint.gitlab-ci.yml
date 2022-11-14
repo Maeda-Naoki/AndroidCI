@@ -1,5 +1,5 @@
 ktlint:
-  stage: debug
+  stage: lint
   script:
     - bundle install
     - ./gradlew ktlintCheck
@@ -21,7 +21,7 @@ ktlint:
       when: always
 
 androidLint:
-  stage: debug
+  stage: lint
   script:
     - bundle install
     - ./gradlew lint
