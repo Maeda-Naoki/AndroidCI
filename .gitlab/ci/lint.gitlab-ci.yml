@@ -1,7 +1,9 @@
 ktlint:
   stage: debug
   script:
+    - bundle install
     - ./gradlew ktlintCheck
+    - bundle exec danger
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
