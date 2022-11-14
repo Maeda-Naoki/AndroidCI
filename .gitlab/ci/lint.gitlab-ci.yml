@@ -1,9 +1,7 @@
 ktlint:
   stage: lint
   script:
-    - bundle install
     - ./gradlew ktlintCheck
-    - bundle exec danger
   artifacts:
     paths:
       - app/build/reports/ktlint/
@@ -27,9 +25,7 @@ ktlint:
 androidLint:
   stage: lint
   script:
-    - bundle install
     - ./gradlew lint
-    - bundle exec danger
   artifacts:
     paths:
       - app/build/reports/lint-report.xml
