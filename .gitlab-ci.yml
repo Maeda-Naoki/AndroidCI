@@ -32,6 +32,7 @@ variables:
 
 stages:
   - debug
+  - lint
   - test
   - release
 
