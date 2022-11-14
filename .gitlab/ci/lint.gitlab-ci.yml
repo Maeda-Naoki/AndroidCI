@@ -49,3 +49,16 @@ androidLint:
     # When the MR source is a feature branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
       when: always
+
+danger:
+  stage: lint
+  needs: ["ktlint", "androidLint"]
+  script:
+    - bundle install
+    - bundle exec danger
+  rules:
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    # When the MR source is a feature branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
