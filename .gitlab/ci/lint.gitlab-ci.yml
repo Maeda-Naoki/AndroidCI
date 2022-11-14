@@ -4,6 +4,10 @@ ktlint:
     - bundle install
     - ./gradlew ktlintCheck
     - bundle exec danger
+  artifacts:
+    paths:
+      - app/build/reports/ktlint/
+    expire_in: 1 day
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
@@ -26,6 +30,10 @@ androidLint:
     - bundle install
     - ./gradlew lint
     - bundle exec danger
+  artifacts:
+    paths:
+      - app/build/reports/lint-report.xml
+    expire_in: 1 day
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
