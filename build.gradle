@@ -17,5 +17,9 @@ subprojects {
         coloredOutput = true        // Enabled colored output to console.
         outputColorName = "RED"     // Specify the color of the terminal output.
         ignoreFailures = true       // Keep the build going even with warnings.
+        reporters {
+            reporter "plain"        // Enable console reporter
+            reporter "checkstyle"   // Enable checkstyle reporter
+        }
     }
 }

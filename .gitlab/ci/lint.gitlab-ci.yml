@@ -1,39 +1,42 @@
 ktlint:
-  stage: debug
+  stage: lint
   script:
     - ./gradlew ktlintCheck
+  artifacts:
+    paths:
+      - app/build/reports/ktlint/
+    expire_in: 1 day
   rules:
-    # Commit to main / develop branch
-    - if: $CI_COMMIT_BRANCH == "main" ||
-          $CI_COMMIT_BRANCH == "develop"
-      when: manual
-    # Commit to feature branch
-    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
-      when: always
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-      when: always
     # When the MR source is a feature branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
-      when: always
 
 androidLint:
-  stage: debug
+  stage: lint
   script:
     - ./gradlew lint
+  artifacts:
+    paths:
+      - app/build/reports/lint-report.xml
+    expire_in: 1 day
   rules:
-    # Commit to main / develop branch
-    - if: $CI_COMMIT_BRANCH == "main" ||
-          $CI_COMMIT_BRANCH == "develop"
-      when: manual
-    # Commit to feature branch
-    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
-      when: always
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-      when: always
     # When the MR source is a feature branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
-      when: always
+
+danger:
+  stage: lint
+  needs: ["ktlint", "androidLint"]
+  script:
+    - bundle install
+    - bundle exec danger
+  rules:
+    # When the MR target is the main / develop branch
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
+          $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
+    # When the MR source is a feature branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
