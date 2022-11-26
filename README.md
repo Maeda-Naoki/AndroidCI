@@ -1,12 +1,7 @@
 # AndroidCI
 
-# GitLab CI
 ## Environment Variables
 ### Required
-#### Merge Request variables
-##### DANGER_GITLAB_API_TOKEN
-An access token for the account which will post comments.  
-Please create an account to post comments in advance.
 You must set the below environment variables to do a **Release build** .  
 #### KEYSTORE_FILE_BASE64
 This is KeyStore.jks encoded in Base64.  
@@ -41,3 +36,10 @@ This is the version of the Android command-line tools.
 Please refer to the ★ portion of the following values for version values.  
 `commandlinetools-linux-{★}_latest.zip`  
 Ref : [Command-line tools](https://developer.android.com/studio#downloads)
+
+### for GitLab CI
+#### Required
+##### Merge Request variables
+###### DANGER_GITLAB_API_TOKEN
+An access token for the account which will post comments.  
+Please create an account to post comments in advance.
