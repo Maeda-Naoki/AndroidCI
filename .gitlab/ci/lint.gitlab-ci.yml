@@ -30,6 +30,7 @@ androidLint:
 
 danger:
   stage: lint
+  image: ruby:3.1.3-slim-bullseye
   needs: ["ktlint", "androidLint"]
   script:
     - bundle install
