@@ -43,6 +43,7 @@ Ref : [Command-line tools](https://developer.android.com/studio#downloads)
 ### for GitLab CI
 #### Required
 ##### Merge Request variables
+You must set the below environment variables to do a **Merge Request** .  
 ###### DANGER_GITLAB_API_TOKEN
 An access token for the account which will post comments.  
 Please create an account to post comments in advance.
