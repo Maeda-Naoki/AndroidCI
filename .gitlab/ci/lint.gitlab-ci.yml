@@ -32,6 +32,9 @@ danger:
   stage: lint
   image: ruby:3.1.3-slim-bullseye
   needs: ["ktlint", "androidLint"]
+  before_script:
+    # Disable global before script
+    []
   script:
     - bundle install
     - bundle exec danger
