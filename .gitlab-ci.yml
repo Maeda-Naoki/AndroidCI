@@ -28,7 +28,7 @@ variables:
 
     # Command-line tools version
     # Ref : https://developer.android.com/studio#downloads
-    ANDROID_SDK_TOOLS: "8512546"
+    ANDROID_SDK_TOOLS: "9123335"
 
 stages:
   - debug
