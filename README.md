@@ -20,7 +20,7 @@ Set the `Key Store Password` that you entered when creating the KeyStore.
 ###### KEY_ALIAS
 Set the `Key Alias` that you entered when creating the KeyStore.
 ###### KEY_PASSWORD
-Set the `Key Password` that you entered when creating the KeyStore.
+Set the `Key Password` that you entered when creating the KeyStore.  
 **Never commit this value.**
 
 #### Overwritable
