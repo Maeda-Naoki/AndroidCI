@@ -1,7 +1,9 @@
 # AndroidCI
 
 ## Environment Variables
+### Common
 ### Required
+##### Release Build variables
 You must set the below environment variables to do a **Release build** .  
 #### KEYSTORE_FILE_BASE64
 This is KeyStore.jks encoded in Base64.  
@@ -22,6 +24,7 @@ Set the `Key Password` that you entered when creating the KeyStore.
 **Never commit this value.**
 
 ### Overwritable
+##### Build variables
 The following values are set to default values, but you can override them from the repository settings.  
 #### ANDROID_COMPILE_SDK
 This is the compile target SDK version.  
