@@ -10,7 +10,7 @@ debugBuild:
       allow_failure: false
     # Commit to feature branch
     - if: '$CI_COMMIT_BRANCH =~ /^feature/'
-      when: manual
+      when: always
       allow_failure: true
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
@@ -22,3 +22,21 @@ debugBuild:
       when: manual
       allow_failure: true
 
+releaseBuild:
+  stage: release
+  script:
+    - echo $KEYSTORE_FILE_BASE64 | base64 -d > release.keystore.jks
+    - ./gradlew  assembleRelease
+  artifacts:
+    name: app-release-$CI_COMMIT_SHA
+    paths:
+      - ./app/build/outputs/apk/release/*.apk
+  rules:
+    # Commit to main branch
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: on_success
+      allow_failure: false
+    # Commit to feature branch
+    - if: '$CI_COMMIT_BRANCH =~ /^feature/'
+      when: manual
+      allow_failure: true

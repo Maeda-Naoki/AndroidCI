@@ -1,5 +1,5 @@
 default:
-  image: openjdk:11.0.16-slim-buster
+  image: openjdk:11.0.16-slim-bullseye
 
   before_script:
     - apt-get --quiet update --yes
@@ -27,10 +27,13 @@ variables:
 
     # Command-line tools version
     # Ref : https://developer.android.com/studio#downloads
-    ANDROID_SDK_TOOLS: "8512546"
+    ANDROID_SDK_TOOLS: "9123335"
 
 stages:
   - debug
+  - lint
+  - test
+  - release
 
 include:
   - local: .gitlab/ci/*.gitlab-ci.yml
