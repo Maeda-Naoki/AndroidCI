@@ -30,8 +30,14 @@ androidLint:
 
 danger:
   stage: lint
+  image: ruby:3.1.3-slim-bullseye
   needs: ["ktlint", "androidLint"]
+  before_script:
+    # Disable global before script
+    []
   script:
+    - apt-get --quiet update --yes
+    - apt-get --quiet install --yes git build-essential
     - bundle install
     - bundle exec danger
   rules:
