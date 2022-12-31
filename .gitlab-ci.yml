@@ -20,7 +20,7 @@ default:
 
 variables:
     # Compile SDK version
-    ANDROID_COMPILE_SDK: "32"
+    ANDROID_COMPILE_SDK: "33"
 
     # Android SDK Build-Tools version
     ANDROID_BUILD_TOOLS: "33.0.0"
