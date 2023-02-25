@@ -42,15 +42,13 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    lintOptions {
+    lint {
         // if true, stop the gradle build if errors are found
         abortOnError false
         // if true, check all issues, including those that are off by default
         checkAllWarnings true
         // if true, generate a text report of issues (false by default)
         textReport true
-        // location to write the output; can be a file or 'stdout'
-        textOutput 'stdout'
         // if true, generate an XML report for use by for example Jenkins
         xmlReport true
         // file to write report to (if not specified, defaults to lint-results.xml)
