@@ -23,11 +23,11 @@ variables:
     ANDROID_COMPILE_SDK: "33"
 
     # Android SDK Build-Tools version
-    ANDROID_BUILD_TOOLS: "33.0.0"
+    ANDROID_BUILD_TOOLS: "33.0.1"
 
     # Command-line tools version
     # Ref : https://developer.android.com/studio#downloads
-    ANDROID_SDK_TOOLS: "9123335"
+    ANDROID_SDK_TOOLS: "9477386"
 
 stages:
   - debug
