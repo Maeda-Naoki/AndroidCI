@@ -37,7 +37,7 @@ danger:
     []
   script:
     - apt-get --quiet update --yes
-    - apt-get --quiet install --yes git build-essential
+    - apt-get --quiet install --no-install-recommends --yes git build-essential
     - bundle install
     - bundle exec danger
   rules:
