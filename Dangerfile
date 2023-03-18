@@ -5,10 +5,12 @@ android_lint.skip_gradle_task = true
 # Lint only added / modified files
 android_lint.filtering = true
 
-Dir["**/build/reports/lint-report.xml"].each do |file|
-	android_lint.report_file = file
-	android_lint.lint(inline_mode: true)
-  end
+Dir
+  .glob("**/build/reports/lint-report.xml")
+  .each { |file|
+  	android_lint.report_file = file
+  	android_lint.lint(inline_mode: true)
+  }
 
 # Make danger comment directly on the line instead of printing a markdown table (GitHub ONLY)
 android_lint.lint(inline_mode: true)
