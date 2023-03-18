@@ -10,8 +10,9 @@ ktlint:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+    # When the MR source is a feature / fix branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"
 
 androidLint:
   stage: lint
@@ -25,8 +26,9 @@ androidLint:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+    # When the MR source is a feature / fix branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"
 
 danger:
   stage: lint
@@ -44,5 +46,6 @@ danger:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+    # When the MR source is a feature / fix branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"
