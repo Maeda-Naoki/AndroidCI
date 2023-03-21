@@ -5,9 +5,9 @@ unitTest:
   artifacts:
     name: unit-test-$CI_COMMIT_SHA
     paths:
-      - app/build/reports/tests/testDebugUnitTest/
+      - ./**/build/reports/tests/testDebugUnitTest/
     reports:
-      junit: app/build/test-results/**/TEST-*.xml
+      junit: ./**/build/test-results/**/TEST-*.xml
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
