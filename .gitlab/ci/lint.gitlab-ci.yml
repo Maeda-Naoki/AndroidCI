@@ -4,7 +4,7 @@ ktlint:
     - ./gradlew ktlintCheck
   artifacts:
     paths:
-      - app/build/reports/ktlint/
+      - ./**/build/reports/ktlint/
     expire_in: 1 day
   rules:
     # When the MR target is the main / develop branch
@@ -21,7 +21,7 @@ androidLint:
     - ./gradlew lint
   artifacts:
     paths:
-      - app/build/reports/lint-report.xml
+      - ./**/build/reports/lint-report.xml
     expire_in: 1 day
   rules:
     # When the MR target is the main / develop branch
