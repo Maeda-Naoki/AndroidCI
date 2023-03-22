@@ -4,14 +4,16 @@ ktlint:
     - ./gradlew ktlintCheck
   artifacts:
     paths:
-      - app/build/reports/ktlint/
+      - ./**/build/reports/ktlint/
     expire_in: 1 day
   rules:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+    # When the MR source is a feature / fix branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
 
 androidLint:
   stage: lint
@@ -19,14 +21,16 @@ androidLint:
     - ./gradlew lint
   artifacts:
     paths:
-      - app/build/reports/lint-report.xml
+      - ./**/build/reports/lint-report.xml
     expire_in: 1 day
   rules:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+    # When the MR source is a feature / fix branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
 
 danger:
   stage: lint
@@ -44,5 +48,7 @@ danger:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature"
+    # When the MR source is a feature / fix branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
