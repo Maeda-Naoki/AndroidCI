@@ -4,17 +4,17 @@ plugins {
 }
 
 android {
-    namespace "lucky.retriever.androidci"
-    compileSdk 33
+    namespace = "lucky.retriever.androidci"
+    compileSdk = 33
 
     defaultConfig {
-        applicationId "lucky.retriever.androidci"
-        minSdk 29
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        applicationId = "lucky.retriever.androidci"
+        minSdk = 29
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -36,8 +36,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = "11"
@@ -55,7 +55,7 @@ android {
         xmlOutput file("$reportsDir/lint-report.xml")
     }
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
 }
 
