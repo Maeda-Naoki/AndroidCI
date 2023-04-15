@@ -44,15 +44,15 @@ android {
     }
     lint {
         // if true, stop the gradle build if errors are found
-        abortOnError false
+        abortOnError = false
         // if true, check all issues, including those that are off by default
-        checkAllWarnings true
+        checkAllWarnings = true
         // if true, generate a text report of issues (false by default)
-        textReport true
+        textReport = true
         // if true, generate an XML report for use by for example Jenkins
-        xmlReport true
+        xmlReport = true
         // file to write report to (if not specified, defaults to lint-results.xml)
-        xmlOutput file("$reportsDir/lint-report.xml")
+        xmlOutput = file("$buildDir/reports/lint-report.xml")
     }
     buildFeatures {
         viewBinding = true
