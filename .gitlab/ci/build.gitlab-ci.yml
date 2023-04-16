@@ -41,7 +41,8 @@ releaseBuild:
       when: on_success
       allow_failure: false
     # Commit to feature / fix branch
-    - if: $CI_COMMIT_BRANCH =~ "/^feature/" ||
+    - if: $CI_COMMIT_BRANCH =~ "develop"    ||
+          $CI_COMMIT_BRANCH =~ "/^feature/" ||
           $CI_COMMIT_BRANCH =~ "/^fix/"     ||
           $CI_COMMIT_BRANCH =~ "/^hotfix/"
       when: manual
