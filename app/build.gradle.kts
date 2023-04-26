@@ -38,13 +38,16 @@ android {
 			signingConfig = signingConfigs.getByName("release")
 		}
 	}
+
 	compileOptions {
 		sourceCompatibility = JavaVersion.VERSION_11
 		targetCompatibility = JavaVersion.VERSION_11
 	}
+
 	kotlinOptions {
 		jvmTarget = "11"
 	}
+
 	lint {
 		// if true, stop the gradle build if errors are found
 		abortOnError = false
@@ -57,13 +60,13 @@ android {
 		// file to write report to (if not specified, defaults to lint-results.xml)
 		xmlOutput = file("$buildDir/reports/lint-report.xml")
 	}
+	
 	buildFeatures {
 		viewBinding = true
 	}
 }
 
 dependencies {
-
 	implementation("androidx.core:core-ktx:1.10.0")
 	implementation("androidx.appcompat:appcompat:1.6.1")
 	implementation("com.google.android.material:material:1.8.0")
