@@ -30,7 +30,7 @@ androidLint:
 
 danger:
   stage: lint
-  image: ruby:3.2.1-slim-bullseye
+  image: ruby:3.2.2-slim-bullseye
   needs: ["ktlint", "androidLint"]
   before_script:
     # Disable global before script
