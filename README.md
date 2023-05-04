@@ -1,5 +1,12 @@
 # AndroidCI
 
+## Repository Setting
+### for GitLab
+#### Required
+##### Auto-cancel redundant pipelines
+This GitLab CI uses interruptible flag to enable auto-cancel pipelines.  
+Therefore, please enable GitLab's [auto-cancel redundant pipelines](https://docs.gitlab.com/ee/ci/pipelines/settings.html#auto-cancel-redundant-pipelines).
+
 ## Environment Variables
 ### Common
 #### Required
