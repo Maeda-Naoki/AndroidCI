@@ -23,3 +23,4 @@ unitTest:
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+  interruptible: true
