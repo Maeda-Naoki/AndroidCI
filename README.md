@@ -1,4 +1,6 @@
 # AndroidCI
+![GitLab CI](https://gitlab.com/naoki_maeda/AndroidCI/badges/main/pipeline.svg)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Maeda-Naoki/AndroidCI/blob/main/LICENSE)
 
 ## Overview
 This project is intended to be the base of the Android project.
