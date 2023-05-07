@@ -1,5 +1,8 @@
 # AndroidCI
 
+## Overview
+This project is intended to be the base of the Android project.
+
 ## Repository Setting
 ### for GitLab
 #### Required
