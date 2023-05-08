@@ -1,4 +1,33 @@
 # AndroidCI
+![GitLab CI](https://gitlab.com/naoki_maeda/AndroidCI/badges/main/pipeline.svg)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Maeda-Naoki/AndroidCI/blob/main/LICENSE)
+
+## Overview
+This project is intended to be the base of the Android project.
+
+## Development Environment
+- GitHub Action
+  - [ ] Build
+    - [ ] Debug Build
+    - [ ] Release Build
+  - [ ] Lint
+    - [ ] [Ktlint Gradle](https://github.com/JLLeitschuh/ktlint-gradle)
+    - [ ] [Android Lint](https://developer.android.com/studio/write/lint)
+    - [ ] [Danger](https://github.com/danger/danger)
+  - [ ] Test
+    - [ ] UnitTest
+    - [ ] Instrumented Unit Tests
+- GitLab CI
+  - [X] Build
+    - [X] Debug Build
+    - [X] Release Build
+  - [X] Lint
+    - [X] [Ktlint Gradle](https://github.com/JLLeitschuh/ktlint-gradle)
+    - [X] [Android Lint](https://developer.android.com/studio/write/lint)
+    - [X] [Danger](https://github.com/danger/danger)
+  - [X] Test
+    - [X] UnitTest
+    - [ ] Instrumented Unit Tests
 
 ## Repository Setting
 ### for GitLab
