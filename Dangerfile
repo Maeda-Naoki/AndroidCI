@@ -9,11 +9,10 @@ Dir
   .glob("**/build/reports/lint-report.xml")
   .each { |file|
   	android_lint.report_file = file
+    
+    # Make danger comment directly on the line instead of printing a markdown table (GitHub ONLY)
   	android_lint.lint(inline_mode: true)
   }
-
-# Make danger comment directly on the line instead of printing a markdown table (GitHub ONLY)
-android_lint.lint(inline_mode: true)
 
 # ktlint
 checkstyle_format.base_path = Dir.pwd
