@@ -16,6 +16,12 @@ ARG ANDROID_SDK_TOOLS="10406996"
 ### Android SDK Path
 ARG ANDROID_SDK_ROOT="/android-sdk-linux"
 
+# Install dependencies
+RUN apt update && apt install -y --no-install-recommends \
+    wget \
+    tar \
+    unzip
+
 # =================================================================================================
 
 # Base Docker image
