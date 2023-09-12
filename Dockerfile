@@ -54,3 +54,11 @@ ARG UserName="developer"
 ARG UserHomeDir="/home/developer"
 ARG srcGradleDir="/gradle"
 ARG distGradleDir="/opt/gradle"
+
+## Environment Variables
+### Android
+ENV ANDROID_HOME="/android-sdk-linux"
+ENV ANDROID_SDK_ROOT="/android-sdk-linux"
+
+### General
+ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools"
