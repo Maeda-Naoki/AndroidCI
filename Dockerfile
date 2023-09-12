@@ -22,6 +22,10 @@ RUN apt update && apt install -y --no-install-recommends \
     tar \
     unzip
 
+# Download Android SDK
+RUN wget --quiet --output-document=android-sdk.zip "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip" && \
+    unzip -d ${ANDROID_SDK_ROOT} android-sdk.zip
+
 # =================================================================================================
 
 # Base Docker image
