@@ -25,3 +25,4 @@ DockerImageBuild:
         - .gitlab/ci/docker.gitlab-ci.yml
         - Dockerfile
       when: always
+  interruptible: true
