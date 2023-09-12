@@ -40,3 +40,7 @@ RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SD
 
 # Base Docker image
 FROM openjdk:17.0.2-slim-bullseye
+
+# Metadata of Docker image
+LABEL maintainer="maeda.naoki.md9@gmail.com"
+LABEL version="1.0.0"
