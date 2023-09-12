@@ -26,6 +26,13 @@ RUN apt update && apt install -y --no-install-recommends \
 RUN wget --quiet --output-document=android-sdk.zip "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip" && \
     unzip -d ${ANDROID_SDK_ROOT} android-sdk.zip
 
+# Install Android SDK components
+RUN echo y | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SDK_ROOT} \
+    "platforms;android-${ANDROID_COMPILE_SDK}" \
+    "platform-tools" \
+    "build-tools;${ANDROID_BUILD_TOOLS}" \
+    > /dev/null
+
 # =================================================================================================
 
 # Base Docker image
