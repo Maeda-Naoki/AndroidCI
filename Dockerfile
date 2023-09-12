@@ -33,6 +33,9 @@ RUN echo y | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID
     "build-tools;${ANDROID_BUILD_TOOLS}" \
     > /dev/null
 
+# Agree Android SDK License
+RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SDK_ROOT} --licenses > /dev/null
+
 # =================================================================================================
 
 # Base Docker image
