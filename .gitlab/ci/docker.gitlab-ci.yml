@@ -19,3 +19,9 @@ DockerImageBuild:
     # Push Docker images to GitLab container registry
     - docker push $CI_REGISTRY_IMAGE:latest
     - docker push $CI_REGISTRY_IMAGE:$version
+  rules:
+    # Run a job only when the Dockerfile is changed.
+    - changes:
+        - .gitlab/ci/docker.gitlab-ci.yml
+        - Dockerfile
+      when: always
