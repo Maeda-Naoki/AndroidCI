@@ -44,3 +44,13 @@ FROM openjdk:17.0.2-slim-bullseye
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
 LABEL version="1.0.0"
+
+# Docker image build args
+## Build user setting
+ARG GID=10000
+ARG UID=10000
+ARG GroupName="DevelopGroup"
+ARG UserName="developer"
+ARG UserHomeDir="/home/developer"
+ARG srcGradleDir="/gradle"
+ARG distGradleDir="/opt/gradle"
