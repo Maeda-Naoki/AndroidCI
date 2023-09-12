@@ -13,6 +13,7 @@ android {
 		targetSdk = 33
 		versionCode = 1
 		versionName = "1.0"
+		buildToolsVersion = "34.0.0"
 
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 	}
@@ -60,7 +61,7 @@ android {
 		// file to write report to (if not specified, defaults to lint-results.xml)
 		xmlOutput = file("$buildDir/reports/lint-report.xml")
 	}
-	
+
 	buildFeatures {
 		viewBinding = true
 	}
