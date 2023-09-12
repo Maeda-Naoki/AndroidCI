@@ -1,0 +1,6 @@
+DockerImageBuild:
+  stage: docker
+  image: docker:20.10.24
+  services:
+    - name: docker:20.10.24-dind
+      alias: docker
