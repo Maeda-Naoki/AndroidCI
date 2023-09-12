@@ -30,6 +30,7 @@ variables:
     ANDROID_SDK_TOOLS: "9477386"
 
 stages:
+  - docker
   - debug
   - lint
   - test

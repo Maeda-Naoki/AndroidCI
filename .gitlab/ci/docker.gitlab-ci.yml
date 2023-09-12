@@ -1,0 +1,28 @@
+DockerImageBuild:
+  stage: docker
+  image: docker:20.10.24
+  services:
+    - name: docker:20.10.24-dind
+      alias: docker
+  before_script:
+    # Login GitLab container registry
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    # Build Docker image(latest tag)
+    - docker pull $CI_REGISTRY_IMAGE:latest || true
+    - docker build --network host --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:latest .
+    # Get Docker image version from Dockerfile
+    - version=$(docker inspect --format='{{.ContainerConfig.Labels.version}}' $CI_REGISTRY_IMAGE:latest)
+    - echo $version
+    # Build Docker image(version tag)
+    - docker build --tag $CI_REGISTRY_IMAGE:$version .
+    # Push Docker images to GitLab container registry
+    - docker push $CI_REGISTRY_IMAGE:latest
+    - docker push $CI_REGISTRY_IMAGE:$version
+  rules:
+    # Run a job only when the Dockerfile is changed.
+    - changes:
+        - .gitlab/ci/docker.gitlab-ci.yml
+        - Dockerfile
+      when: always
+  interruptible: true
