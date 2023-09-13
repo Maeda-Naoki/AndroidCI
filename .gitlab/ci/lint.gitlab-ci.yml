@@ -2,6 +2,8 @@ ktlint:
   stage: lint
   script:
     - ./gradlew ktlintCheck
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
   artifacts:
     paths:
       - ./**/build/reports/ktlint/
@@ -20,6 +22,8 @@ androidLint:
   stage: lint
   script:
     - ./gradlew lint
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
   artifacts:
     paths:
       - ./**/build/reports/lint-report.xml
