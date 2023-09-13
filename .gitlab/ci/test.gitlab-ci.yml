@@ -2,6 +2,8 @@ unitTest:
   stage: test
   script:
     - ./gradlew testDebugUnitTest
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
   artifacts:
     name: unit-test-$CI_COMMIT_SHA
     paths:
