@@ -1,5 +1,6 @@
 ktlint:
   stage: lint
+  image: $CI_REGISTRY_IMAGE:latest
   script:
     - ./gradlew ktlintCheck
   cache:
@@ -20,6 +21,7 @@ ktlint:
 
 androidLint:
   stage: lint
+  image: $CI_REGISTRY_IMAGE:latest
   script:
     - ./gradlew lint
   cache:
