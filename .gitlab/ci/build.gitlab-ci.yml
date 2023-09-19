@@ -2,6 +2,10 @@ debugBuild:
   stage: debug
   script:
     - ./gradlew assembleDebug
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - ./gradle
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
