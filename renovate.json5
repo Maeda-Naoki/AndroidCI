@@ -3,6 +3,8 @@
   // Ref: https://docs.renovatebot.com/configuration-options
   "extends": ["config:recommended"],                    // https://docs.renovatebot.com/presets-config/#configrecommended
   "timezone": "Asia/Tokyo",
+  "dependencyDashboard": true,                          // Whether to create a "Dependency Dashboard" issue in the repository.
+  "dependencyDashboardAutoclose": true,                 // Set to true to let Renovate close the Dependency Dashboard issue if there are no more updates.
   "labels": ["dependencies"],                           // Labels to set in Pull Request.
   "baseBranches": ["main"],
   "branchPrefix": "renovate/",
