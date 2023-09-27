@@ -8,4 +8,10 @@
   "labels": ["dependencies"],                           // Labels to set in Pull Request.
   "baseBranches": ["main"],
   "branchPrefix": "renovate/",
+  "enabledManagers": [                                  // list of package managers
+    "bundler",
+    "Dockerfile",
+    "gradle",
+    "gradle-wrapper"
+  ],
 }
