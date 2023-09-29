@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // Ref: https://docs.renovatebot.com/configuration-options
+  "extends": ["config:recommended"],                    // https://docs.renovatebot.com/presets-config/#configrecommended
+  "timezone": "Asia/Tokyo",
+  "dependencyDashboard": true,                          // Whether to create a "Dependency Dashboard" issue in the repository.
+  "dependencyDashboardAutoclose": true,                 // Set to true to let Renovate close the Dependency Dashboard issue if there are no more updates.
+  "labels": ["dependencies"],                           // Labels to set in Pull Request.
+  "baseBranches": ["main"],
+  "branchPrefix": "renovate/",
+  "enabledManagers": [                                  // list of package managers
+    "bundler",
+    "Dockerfile",
+    "gradle",
+    "gradle-wrapper"
+  ],
+  "separateMajorMinor": true,                           // create a separate branch/PR if both minor and major version updates exist
+  "rangeStrategy": "pin",                               // convert ranges to exact versions
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true
+    },
+    {
+      "groupName": "Android Gradle Plugin",
+      "matchDepNames": ["com.android.application", "com.android.library"]
+    },
+    {
+      "groupName": "Android Jetpack library",
+      "matchPackagePatterns": ["^androidx"],
+      "excludePackagePatterns": ["^androidx.test"]
+    },
+    {
+      "groupName": "Danger",
+      "matchPackagePatterns": ["^danger"]
+    }
+  ]
+}

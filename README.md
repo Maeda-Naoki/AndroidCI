@@ -17,6 +17,8 @@ This project is intended to be the base of the Android project.
   - [ ] Test
     - [ ] UnitTest
     - [ ] Instrumented Unit Tests
+  - [ ] Dependencies Update Check
+    - [ ] [Renovate](https://github.com/renovatebot/renovate#renovate)
 - GitLab CI
   - [X] Build
     - [X] Debug Build
@@ -28,6 +30,8 @@ This project is intended to be the base of the Android project.
   - [X] Test
     - [X] UnitTest
     - [ ] Instrumented Unit Tests
+  - [X] Dependencies Update Check
+    - [X] [Renovate](https://github.com/renovatebot/renovate#renovate)
 
 ## Repository Setting
 ### for GitLab
@@ -58,6 +62,16 @@ Set the `Key Alias` that you entered when creating the KeyStore.
 ###### KEY_PASSWORD
 Set the `Key Password` that you entered when creating the KeyStore.  
 **Never commit this value.**
+
+##### Renovate
+###### RENOVATE_TOKEN
+API token for Renovate.  
+The token is required for automatic Updates of Dependencies by Renovate.  
+Please refer to the following site for the settings required to create the token.  
+
+- Ref
+  - [GitHub](https://docs.renovatebot.com/modules/platform/github/)
+  - [GitLab](https://docs.renovatebot.com/modules/platform/gitlab/)
 
 #### Overwritable
 ##### Build variables

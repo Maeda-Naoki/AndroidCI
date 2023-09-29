@@ -1,4 +1,7 @@
 stages:
+  # Schedule only
+  - dependency
+  # Default
   - docker
   - debug
   - lint
