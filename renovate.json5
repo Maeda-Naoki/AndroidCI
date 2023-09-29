@@ -10,7 +10,7 @@
   "branchPrefix": "renovate/",
   "enabledManagers": [                                  // list of package managers
     "bundler",
-    "Dockerfile",
+    "dockerfile",
     "gradle",
     "gradle-wrapper"
   ],
