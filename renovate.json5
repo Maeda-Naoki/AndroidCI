@@ -32,5 +32,9 @@
       "matchPackagePatterns": ["^androidx"],
       "excludePackagePatterns": ["^androidx.test"]
     },
+    {
+      "groupName": "Danger",
+      "matchPackagePatterns": ["^danger"]
+    }
   ]
 }
