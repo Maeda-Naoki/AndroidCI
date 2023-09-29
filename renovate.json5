@@ -23,5 +23,9 @@
       "automergeType": "pr",
       "platformAutomerge": true
     },
+    {
+      "groupName": "Android Gradle Plugin",
+      "matchPackageNames": ["com.android.application", "com.android.library"]
+    },
   ]
 }
