@@ -8,6 +8,8 @@ stages:
 variables:
   # Ref: https://docs.gitlab.com/ee/ci/runners/configure_runners.html#artifact-and-cache-settings
   FF_USE_FASTZIP: "true"                # Fastzip is a performant archiver for cache/artifact archiving and extraction
+  ARTIFACT_COMPRESSION_LEVEL: fast      # Use fast compression for artifacts, resulting in larger archives
+  CACHE_COMPRESSION_LEVEL: fast         # Use no compression for caches
 
 include:
   - local: .gitlab/ci/*.gitlab-ci.yml
