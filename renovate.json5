@@ -27,5 +27,10 @@
       "groupName": "Android Gradle Plugin",
       "matchPackageNames": ["com.android.application", "com.android.library"]
     },
+    {
+      "groupName": "Android Jetpack library",
+      "matchPackagePatterns": ["^androidx"],
+      "excludePackagePatterns": ["^androidx.test"]
+    },
   ]
 }
