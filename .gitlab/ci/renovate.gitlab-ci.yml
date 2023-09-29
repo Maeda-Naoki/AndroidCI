@@ -1,0 +1,3 @@
+renovate:
+  stage: dependency
+  image: renovate/renovate:37.1.3-slim
