@@ -9,3 +9,4 @@ renovate:
     - renovate $CI_PROJECT_PATH
   rules:
     - if: $RENOVATE && $CI_PIPELINE_SOURCE == "schedule"
+  interruptible: true
