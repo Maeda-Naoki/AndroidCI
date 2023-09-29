@@ -1,7 +1,12 @@
 debugBuild:
   stage: debug
+  image: $CI_REGISTRY_IMAGE:latest
   script:
     - ./gradlew assembleDebug
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - ./gradle
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
@@ -25,9 +30,11 @@ debugBuild:
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
       when: manual
       allow_failure: true
+  interruptible: true
 
 releaseBuild:
   stage: release
+  image: $CI_REGISTRY_IMAGE:latest
   script:
     - echo $KEYSTORE_FILE_BASE64 | base64 -d > release.keystore.jks
     - ./gradlew  assembleRelease
@@ -41,8 +48,10 @@ releaseBuild:
       when: on_success
       allow_failure: false
     # Commit to feature / fix branch
-    - if: $CI_COMMIT_BRANCH =~ "/^feature/" ||
+    - if: $CI_COMMIT_BRANCH =~ "develop"    ||
+          $CI_COMMIT_BRANCH =~ "/^feature/" ||
           $CI_COMMIT_BRANCH =~ "/^fix/"     ||
           $CI_COMMIT_BRANCH =~ "/^hotfix/"
       when: manual
       allow_failure: true
+  interruptible: true

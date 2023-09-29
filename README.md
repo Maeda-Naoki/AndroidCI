@@ -1,4 +1,44 @@
 # AndroidCI
+![GitLab CI](https://gitlab.com/naoki_maeda/AndroidCI/badges/main/pipeline.svg)
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/Maeda-Naoki/AndroidCI/blob/main/LICENSE)
+
+## Overview
+This project is intended to be the base of the Android project.
+
+## Development Environment
+- GitHub Action
+  - [ ] Build
+    - [ ] Debug Build
+    - [ ] Release Build
+  - [ ] Lint
+    - [ ] [Ktlint Gradle](https://github.com/JLLeitschuh/ktlint-gradle)
+    - [ ] [Android Lint](https://developer.android.com/studio/write/lint)
+    - [ ] [Danger](https://github.com/danger/danger)
+  - [ ] Test
+    - [ ] UnitTest
+    - [ ] Instrumented Unit Tests
+  - [ ] Dependencies Update Check
+    - [ ] [Renovate](https://github.com/renovatebot/renovate#renovate)
+- GitLab CI
+  - [X] Build
+    - [X] Debug Build
+    - [X] Release Build
+  - [X] Lint
+    - [X] [Ktlint Gradle](https://github.com/JLLeitschuh/ktlint-gradle)
+    - [X] [Android Lint](https://developer.android.com/studio/write/lint)
+    - [X] [Danger](https://github.com/danger/danger)
+  - [X] Test
+    - [X] UnitTest
+    - [ ] Instrumented Unit Tests
+  - [X] Dependencies Update Check
+    - [X] [Renovate](https://github.com/renovatebot/renovate#renovate)
+
+## Repository Setting
+### for GitLab
+#### Required
+##### Auto-cancel redundant pipelines
+This GitLab CI uses interruptible flag to enable auto-cancel pipelines.  
+Therefore, please enable GitLab's [auto-cancel redundant pipelines](https://docs.gitlab.com/ee/ci/pipelines/settings.html#auto-cancel-redundant-pipelines).
 
 ## Environment Variables
 ### Common
@@ -22,6 +62,16 @@ Set the `Key Alias` that you entered when creating the KeyStore.
 ###### KEY_PASSWORD
 Set the `Key Password` that you entered when creating the KeyStore.  
 **Never commit this value.**
+
+##### Renovate
+###### RENOVATE_TOKEN
+API token for Renovate.  
+The token is required for automatic Updates of Dependencies by Renovate.  
+Please refer to the following site for the settings required to create the token.  
+
+- Ref
+  - [GitHub](https://docs.renovatebot.com/modules/platform/github/)
+  - [GitLab](https://docs.renovatebot.com/modules/platform/gitlab/)
 
 #### Overwritable
 ##### Build variables

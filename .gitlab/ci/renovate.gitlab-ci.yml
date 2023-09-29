@@ -1,0 +1,12 @@
+renovate:
+  stage: dependency
+  image: renovate/renovate:37.1.3-slim
+  variables:
+    RENOVATE_PLATFORM: gitlab
+    RENOVATE_ENDPOINT: $CI_API_V4_URL
+    RENOVATE_CONFIG_FILE: renovate.json5
+  script:
+    - renovate $CI_PROJECT_PATH
+  rules:
+    - if: $RENOVATE && $CI_PIPELINE_SOURCE == "schedule"
+  interruptible: true

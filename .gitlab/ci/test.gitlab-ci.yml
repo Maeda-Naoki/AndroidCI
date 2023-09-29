@@ -1,7 +1,10 @@
 unitTest:
   stage: test
+  image: $CI_REGISTRY_IMAGE:latest
   script:
     - ./gradlew testDebugUnitTest
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
   artifacts:
     name: unit-test-$CI_COMMIT_SHA
     paths:
@@ -23,3 +26,4 @@ unitTest:
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+  interruptible: true
