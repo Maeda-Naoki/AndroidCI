@@ -59,7 +59,7 @@ android {
 		// if true, generate an XML report for use by for example Jenkins
 		xmlReport = true
 		// file to write report to (if not specified, defaults to lint-results.xml)
-		xmlOutput = file("$buildDir/reports/lint-report.xml")
+		xmlOutput = file("${layout.buildDirectory.get()}/reports/lint-report.xml")
 	}
 
 	buildFeatures {
