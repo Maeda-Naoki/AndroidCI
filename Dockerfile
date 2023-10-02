@@ -4,7 +4,7 @@ FROM openjdk:17.0.2-slim-bullseye AS setup
 # Docker image build args
 ## Android SDK setting
 ### Compile SDK version
-ARG ANDROID_COMPILE_SDK="33"
+ARG ANDROID_COMPILE_SDK="34"
 
 ### Android SDK Build-Tools version
 ARG ANDROID_BUILD_TOOLS="34.0.0"
