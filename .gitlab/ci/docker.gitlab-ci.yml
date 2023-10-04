@@ -48,3 +48,9 @@ DangerDockerImageBuild:
     # Push Docker images to GitLab container registry
     - docker push $CI_REGISTRY_IMAGE/danger:latest
     - docker push $CI_REGISTRY_IMAGE/danger:$version
+  rules:
+    # Run a job only when the Dockerfile is changed.
+    - changes:
+        - .gitlab/ci/docker.gitlab-ci.yml
+        - Danger.Dockerfile
+      when: always
