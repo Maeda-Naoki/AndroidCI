@@ -26,3 +26,10 @@ DockerImageBuild:
         - Dockerfile
       when: always
   interruptible: true
+
+DangerDockerImageBuild:
+  stage: docker
+  image: docker:20.10.24
+  services:
+    - name: docker:20.10.24-dind
+      alias: docker
