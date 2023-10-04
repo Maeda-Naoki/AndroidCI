@@ -42,7 +42,7 @@ androidLint:
 
 danger:
   stage: lint
-  image: ruby:3.2.2-slim-bullseye
+  image: $CI_REGISTRY_IMAGE/danger:latest
   needs: ["ktlint", "androidLint"]
   before_script:
     # Disable global before script
