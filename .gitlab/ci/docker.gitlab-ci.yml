@@ -54,3 +54,4 @@ DangerDockerImageBuild:
         - .gitlab/ci/docker.gitlab-ci.yml
         - Danger.Dockerfile
       when: always
+  interruptible: true
