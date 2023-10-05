@@ -2,9 +2,12 @@ unitTest:
   stage: test
   image: $CI_REGISTRY_IMAGE:latest
   script:
-    - ./gradlew testDebugUnitTest
+    - ./gradlew --gradle-user-home ./.gradleHome testDebugUnitTest
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - ./.gradleHome
   artifacts:
     name: unit-test-$CI_COMMIT_SHA
     paths:

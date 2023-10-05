@@ -2,11 +2,13 @@ debugBuild:
   stage: debug
   image: $CI_REGISTRY_IMAGE:latest
   script:
-    - ./gradlew assembleDebug
+    - ./gradlew --gradle-user-home ./.gradleHome assembleDebug
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull-push
     paths:
       - ./gradle
+      - ./.gradleHome
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
@@ -37,7 +39,12 @@ releaseBuild:
   image: $CI_REGISTRY_IMAGE:latest
   script:
     - echo $KEYSTORE_FILE_BASE64 | base64 -d > release.keystore.jks
-    - ./gradlew  assembleRelease
+    - ./gradlew --gradle-user-home ./.gradleHome assembleRelease
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
+    paths:
+      - ./.gradleHome
   artifacts:
     name: app-release-$CI_COMMIT_SHA
     paths:
