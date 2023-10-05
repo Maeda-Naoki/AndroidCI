@@ -7,6 +7,7 @@ debugBuild:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - ./gradle
+      - ./.gradleHome
   rules:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
@@ -38,6 +39,10 @@ releaseBuild:
   script:
     - echo $KEYSTORE_FILE_BASE64 | base64 -d > release.keystore.jks
     - ./gradlew --gradle-user-home ./.gradleHome assembleRelease
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - ./.gradleHome
   artifacts:
     name: app-release-$CI_COMMIT_SHA
     paths:
