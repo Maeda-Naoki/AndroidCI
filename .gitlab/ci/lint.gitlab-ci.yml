@@ -5,6 +5,7 @@ ktlint:
     - ./gradlew --gradle-user-home ./.gradleHome ktlintCheck
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
     paths:
       - ./.gradleHome
   artifacts:
@@ -28,6 +29,7 @@ androidLint:
     - ./gradlew --gradle-user-home ./.gradleHome lint
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
     paths:
       - ./.gradleHome
   artifacts:

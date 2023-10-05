@@ -5,6 +5,7 @@ debugBuild:
     - ./gradlew --gradle-user-home ./.gradleHome assembleDebug
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull-push
     paths:
       - ./gradle
       - ./.gradleHome
@@ -41,6 +42,7 @@ releaseBuild:
     - ./gradlew --gradle-user-home ./.gradleHome assembleRelease
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
     paths:
       - ./.gradleHome
   artifacts:

@@ -5,6 +5,7 @@ unitTest:
     - ./gradlew --gradle-user-home ./.gradleHome testDebugUnitTest
   cache:
     key: ${CI_COMMIT_REF_SLUG}
+    policy: pull
     paths:
       - ./.gradleHome
   artifacts:
