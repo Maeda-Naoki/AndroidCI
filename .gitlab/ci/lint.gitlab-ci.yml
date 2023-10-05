@@ -2,7 +2,7 @@ ktlint:
   stage: lint
   image: $CI_REGISTRY_IMAGE:latest
   script:
-    - ./gradlew ktlintCheck
+    - ./gradlew --gradle-user-home ./.gradleHome ktlintCheck
   cache:
     key: ${CI_COMMIT_REF_SLUG}
   artifacts:
@@ -23,7 +23,7 @@ androidLint:
   stage: lint
   image: $CI_REGISTRY_IMAGE:latest
   script:
-    - ./gradlew lint
+    - ./gradlew --gradle-user-home ./.gradleHome lint
   cache:
     key: ${CI_COMMIT_REF_SLUG}
   artifacts:
