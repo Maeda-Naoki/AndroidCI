@@ -48,15 +48,9 @@ androidLint:
 
 danger:
   stage: lint
-  image: ruby:3.2.2-slim-bullseye
+  image: $CI_REGISTRY_IMAGE/danger:latest
   needs: ["ktlint", "androidLint"]
-  before_script:
-    # Disable global before script
-    []
   script:
-    - apt-get --quiet update --yes
-    - apt-get --quiet install --no-install-recommends --yes git build-essential
-    - bundle install
     - bundle exec danger
   rules:
     # When the MR target is the main / develop branch
