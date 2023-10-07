@@ -7,6 +7,7 @@ ktlint:
     key: ${CI_COMMIT_REF_SLUG}
     policy: pull
     paths:
+      - ./gradle
       - ./.gradleHome
   artifacts:
     paths:
@@ -31,6 +32,7 @@ androidLint:
     key: ${CI_COMMIT_REF_SLUG}
     policy: pull
     paths:
+      - ./gradle
       - ./.gradleHome
   artifacts:
     paths:
