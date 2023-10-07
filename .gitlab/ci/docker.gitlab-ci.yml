@@ -24,7 +24,6 @@ DockerImageBuild:
     - changes:
         - .gitlab/ci/docker.gitlab-ci.yml
         - Dockerfile
-      when: always
   interruptible: true
 
 DangerDockerImageBuild:
@@ -53,5 +52,4 @@ DangerDockerImageBuild:
     - changes:
         - .gitlab/ci/docker.gitlab-ci.yml
         - Danger.Dockerfile
-      when: always
   interruptible: true
