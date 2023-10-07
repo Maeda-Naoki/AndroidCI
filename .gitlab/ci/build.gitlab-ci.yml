@@ -44,6 +44,7 @@ releaseBuild:
     key: ${CI_COMMIT_REF_SLUG}
     policy: pull
     paths:
+      - ./gradle
       - ./.gradleHome
   artifacts:
     name: app-release-$CI_COMMIT_SHA
