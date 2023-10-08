@@ -7,6 +7,7 @@ debugBuild:
     key: ${CI_COMMIT_REF_SLUG}
     policy: pull-push
     paths:
+      - ./.gradle
       - ./gradle
       - ./.gradleHome
   rules:
@@ -44,6 +45,7 @@ releaseBuild:
     key: ${CI_COMMIT_REF_SLUG}
     policy: pull
     paths:
+      - ./.gradle
       - ./gradle
       - ./.gradleHome
   artifacts:
