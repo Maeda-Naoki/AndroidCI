@@ -64,7 +64,7 @@ ENV ANDROID_SDK_ROOT="/android-sdk-linux"
 ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools"
 
 # Add build user (Non-root user)
-RUN groupadd -g ${GID} ${GroupName} && \
+RUN addgroup -g ${GID} ${GroupName} && \
     adduser --uid ${UID} --gid ${GID} --home ${UserHomeDir} ${UserName}
 
 # Copy Android SDK directory
