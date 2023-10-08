@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM openjdk:17.0.2-slim-bullseye AS setup
+FROM amazoncorretto:17.0.8-alpine3.18 AS setup
 
 # Docker image build args
 ## Android SDK setting
@@ -39,7 +39,7 @@ RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SD
 # =================================================================================================
 
 # Base Docker image
-FROM openjdk:17.0.2-slim-bullseye
+FROM amazoncorretto:17.0.8-alpine3.18
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
