@@ -65,7 +65,8 @@ ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools
 
 # Add build user (Non-root user)
 RUN addgroup -g ${GID} ${GroupName} && \
-    adduser --uid ${UID} --gid ${GID} --home ${UserHomeDir} ${UserName}
+    adduser --disabled-password \
+    -u ${UID} -G ${GroupName} -h ${UserHomeDir} ${UserName}
 
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
