@@ -70,7 +70,9 @@ RUN addgroup -g ${GID} ${GroupName} && \
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
-    gcompat
+    gcompat \
+    libgcc
+
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
 
