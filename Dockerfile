@@ -68,6 +68,9 @@ RUN addgroup -g ${GID} ${GroupName} && \
     adduser --disabled-password \
     -u ${UID} -G ${GroupName} -h ${UserHomeDir} ${UserName}
 
+# Install dependencies
+RUN apk update && apk --no-cache add \
+    gcompat
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
 
