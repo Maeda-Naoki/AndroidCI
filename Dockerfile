@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM openjdk:17.0.2-slim-bullseye AS setup
+FROM amazoncorretto:17.0.8-alpine3.18 AS setup
 
 # Docker image build args
 ## Android SDK setting
@@ -17,7 +17,7 @@ ARG ANDROID_SDK_TOOLS="10406996"
 ARG ANDROID_SDK_ROOT="/android-sdk-linux"
 
 # Install dependencies
-RUN apt update && apt install -y --no-install-recommends \
+RUN apk update && apk --no-cache add \
     wget \
     tar \
     unzip
@@ -39,11 +39,11 @@ RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SD
 # =================================================================================================
 
 # Base Docker image
-FROM openjdk:17.0.2-slim-bullseye
+FROM amazoncorretto:17.0.8-alpine3.18
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 
 # Docker image build args
 ## Build user setting
@@ -64,8 +64,14 @@ ENV ANDROID_SDK_ROOT="/android-sdk-linux"
 ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools"
 
 # Add build user (Non-root user)
-RUN groupadd -g ${GID} ${GroupName} && \
-    adduser --uid ${UID} --gid ${GID} --home ${UserHomeDir} ${UserName}
+RUN addgroup -g ${GID} ${GroupName} && \
+    adduser --disabled-password \
+    -u ${UID} -G ${GroupName} -h ${UserHomeDir} ${UserName}
+
+# Install dependencies
+RUN apk update && apk --no-cache add \
+    gcompat \
+    libgcc
 
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
