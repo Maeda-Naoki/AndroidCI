@@ -2,7 +2,7 @@
 FROM ruby:3.2.2-alpine3.18 AS setup
 
 # Install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apk update && apk --no-cache add \
     git \
     build-essential
 
@@ -22,7 +22,7 @@ LABEL maintainer="maeda.naoki.md9@gmail.com"
 LABEL version="1.0.0"
 
 # Install dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apk update && apk --no-cache add \
     git
 
 # Copy Ruby Gems directory
