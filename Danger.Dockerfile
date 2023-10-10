@@ -4,7 +4,7 @@ FROM ruby:3.2.2-alpine3.18 AS setup
 # Install dependencies
 RUN apk update && apk --no-cache add \
     git \
-    build-essential
+    alpine-sdk
 
 # Copy Gemfile
 COPY Gemfile ${PWD}
