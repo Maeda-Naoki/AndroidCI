@@ -19,7 +19,7 @@ FROM ruby:3.2.2-alpine3.18
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
-LABEL version="1.0.0"
+LABEL version="1.1.0"
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
