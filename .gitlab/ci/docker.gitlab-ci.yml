@@ -1,6 +1,6 @@
 DockerImageBuild:
   stage: docker
-  image: docker:20.10.24
+  image: docker:24.0.6-git
   services:
     - name: docker:20.10.24-dind
       alias: docker
@@ -28,7 +28,7 @@ DockerImageBuild:
 
 DangerDockerImageBuild:
   stage: docker
-  image: docker:20.10.24
+  image: docker:24.0.6-git
   services:
     - name: docker:20.10.24-dind
       alias: docker
