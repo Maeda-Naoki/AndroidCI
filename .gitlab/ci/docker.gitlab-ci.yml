@@ -13,6 +13,13 @@ DockerImageBuild:
     - docker build --network host --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:latest .
     # Get Docker image version from Dockerfile
     - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE:latest | sed -e 's/\"//g')
+    # Set default version when there is no version label in the DockerImage
+    - |
+      if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
+        echo "Can't Get DockerImage version from latest image"
+        echo "Set Default DockerImage version (v1.0.0)"
+        version="1.0.0"
+      fi
     - echo $version
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE:$version .
@@ -41,6 +48,13 @@ DangerDockerImageBuild:
     - docker build --network host --cache-from $CI_REGISTRY_IMAGE/danger:latest --tag $CI_REGISTRY_IMAGE/danger:latest -f Danger.Dockerfile .
     # Get Docker image version from Dockerfile
     - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE/danger:latest | sed -e 's/\"//g')
+    # Set default version when there is no version label in the DockerImage
+    - |
+      if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
+        echo "Can't Get DockerImage version from latest image"
+        echo "Set Default DockerImage version (v1.0.0)"
+        version="1.0.0"
+      fi
     - echo $version
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE/danger:$version -f Danger.Dockerfile .
