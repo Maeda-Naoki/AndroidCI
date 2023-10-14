@@ -20,6 +20,7 @@ DockerImageBuild:
         echo "Set Default DockerImage version (v1.0.0)"
         version="1.0.0"
       fi
+    # Display DockerImage version
     - echo $version
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE:$version .
@@ -55,6 +56,7 @@ DangerDockerImageBuild:
         echo "Set Default DockerImage version (v1.0.0)"
         version="1.0.0"
       fi
+    # Display DockerImage version
     - echo $version
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE/danger:$version -f Danger.Dockerfile .
