@@ -12,7 +12,7 @@ DockerImageBuild:
     - docker pull $CI_REGISTRY_IMAGE:latest || true
     - docker build --network host --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:latest .
     # Get Docker image version from Dockerfile
-    - version=$(docker inspect --format='{{.ContainerConfig.Labels.version}}' $CI_REGISTRY_IMAGE:latest)
+    - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE:latest | sed -e 's/\"//g')
     - echo $version
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE:$version .
@@ -40,7 +40,7 @@ DangerDockerImageBuild:
     - docker pull $CI_REGISTRY_IMAGE/danger:latest || true
     - docker build --network host --cache-from $CI_REGISTRY_IMAGE/danger:latest --tag $CI_REGISTRY_IMAGE/danger:latest -f Danger.Dockerfile .
     # Get Docker image version from Dockerfile
-    - version=$(docker inspect --format='{{.ContainerConfig.Labels.version}}' $CI_REGISTRY_IMAGE/danger:latest)
+    - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE/danger:latest | sed -e 's/\"//g')
     - echo $version
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE/danger:$version -f Danger.Dockerfile .
