@@ -19,6 +19,8 @@ DockerImageBuild:
       fi
     # Display DockerImage version
     - echo $version
+    # Create Docker Builder instance
+    - docker buildx create --use --driver=docker-container
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE:$version .
     # Push Docker images to GitLab container registry
@@ -52,6 +54,8 @@ DangerDockerImageBuild:
       fi
     # Display DockerImage version
     - echo $version
+    # Create Docker Builder instance
+    - docker buildx create --use --driver=docker-container
     # Build Docker image(version tag)
     - docker build --tag $CI_REGISTRY_IMAGE/danger:$version -f Danger.Dockerfile .
     # Push Docker images to GitLab container registry
