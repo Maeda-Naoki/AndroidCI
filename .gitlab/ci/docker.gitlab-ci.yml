@@ -9,7 +9,7 @@ DockerImageBuild:
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
     # Get Docker image version from Dockerfile
-    - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE:latest | sed -e 's/\"//g')
+    - version=$(grep 'LABEL version=' Dockerfile | sed -e 's/.*=//' -e 's/"//g')
     # Set default version when there is no version label in the DockerImage
     - |
       if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
@@ -42,7 +42,7 @@ DangerDockerImageBuild:
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
     # Get Docker image version from Dockerfile
-    - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE/danger:latest | sed -e 's/\"//g')
+    - version=$(grep 'LABEL version=' Danger.Dockerfile | sed -e 's/.*=//' -e 's/"//g')
     # Set default version when there is no version label in the DockerImage
     - |
       if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
