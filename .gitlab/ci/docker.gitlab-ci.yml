@@ -8,11 +8,8 @@ DockerImageBuild:
     # Login GitLab container registry
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
-    # Build Docker image(latest tag)
-    - docker pull $CI_REGISTRY_IMAGE:latest || true
-    - docker build --network host --cache-from $CI_REGISTRY_IMAGE:latest --tag $CI_REGISTRY_IMAGE:latest .
     # Get Docker image version from Dockerfile
-    - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE:latest | sed -e 's/\"//g')
+    - version=$(grep 'LABEL version=' Dockerfile | sed -e 's/.*=//' -e 's/"//g')
     # Set default version when there is no version label in the DockerImage
     - |
       if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
@@ -22,11 +19,18 @@ DockerImageBuild:
       fi
     # Display DockerImage version
     - echo $version
-    # Build Docker image(version tag)
-    - docker build --tag $CI_REGISTRY_IMAGE:$version .
-    # Push Docker images to GitLab container registry
-    - docker push $CI_REGISTRY_IMAGE:latest
-    - docker push $CI_REGISTRY_IMAGE:$version
+    # Create Docker Builder instance
+    - docker buildx create --use --driver=docker-container
+    # Build Docker image & Push Docker images to GitLab container registry
+    - >
+      docker buildx build
+      --file Dockerfile
+      --cache-from type=registry,ref=$CI_REGISTRY_IMAGE:latest
+      --platform linux/amd64,linux/arm64
+      -t $CI_REGISTRY_IMAGE:latest
+      -t $CI_REGISTRY_IMAGE:$version
+      --push
+      .
   rules:
     # Run a job only when the Dockerfile is changed.
     - changes:
@@ -44,11 +48,8 @@ DangerDockerImageBuild:
     # Login GitLab container registry
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
-    # Build Docker image(latest tag)
-    - docker pull $CI_REGISTRY_IMAGE/danger:latest || true
-    - docker build --network host --cache-from $CI_REGISTRY_IMAGE/danger:latest --tag $CI_REGISTRY_IMAGE/danger:latest -f Danger.Dockerfile .
     # Get Docker image version from Dockerfile
-    - version=$(docker inspect --format='{{json .Config.Labels.version}}' $CI_REGISTRY_IMAGE/danger:latest | sed -e 's/\"//g')
+    - version=$(grep 'LABEL version=' Danger.Dockerfile | sed -e 's/.*=//' -e 's/"//g')
     # Set default version when there is no version label in the DockerImage
     - |
       if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
@@ -58,11 +59,18 @@ DangerDockerImageBuild:
       fi
     # Display DockerImage version
     - echo $version
-    # Build Docker image(version tag)
-    - docker build --tag $CI_REGISTRY_IMAGE/danger:$version -f Danger.Dockerfile .
-    # Push Docker images to GitLab container registry
-    - docker push $CI_REGISTRY_IMAGE/danger:latest
-    - docker push $CI_REGISTRY_IMAGE/danger:$version
+    # Create Docker Builder instance
+    - docker buildx create --use --driver=docker-container
+    # Build Docker image & Push Docker images to GitLab container registry
+    - >
+      docker buildx build
+      --file Danger.Dockerfile
+      --cache-from type=registry,ref=$CI_REGISTRY_IMAGE/danger:latest
+      --platform linux/amd64,linux/arm64
+      -t $CI_REGISTRY_IMAGE/danger:latest
+      -t $CI_REGISTRY_IMAGE/danger:$version
+      --push
+      .
   rules:
     # Run a job only when the Dockerfile is changed.
     - changes:

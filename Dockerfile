@@ -43,7 +43,7 @@ FROM amazoncorretto:17.0.9-alpine3.18
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
-LABEL version="1.1.0"
+LABEL version="1.2.0"
 
 # Docker image build args
 ## Build user setting
