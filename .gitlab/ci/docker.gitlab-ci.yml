@@ -76,4 +76,5 @@ DangerDockerImageBuild:
     - changes:
         - .gitlab/ci/docker.gitlab-ci.yml
         - Danger.Dockerfile
+        - Gemfile
   interruptible: true
