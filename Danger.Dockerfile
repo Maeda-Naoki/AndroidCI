@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM ruby:3.2.2-alpine3.18 AS setup
+FROM ruby:3.3.0-alpine3.18 AS setup
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
@@ -15,7 +15,7 @@ RUN bundle install
 # =================================================================================================
 
 # Base Docker image
-FROM ruby:3.2.2-alpine3.18
+FROM ruby:3.3.0-alpine3.18
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
