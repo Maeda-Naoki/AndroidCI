@@ -11,6 +11,8 @@
   "enabledManagers": [                                  // list of package managers
     "bundler",
     "dockerfile",
+    "gitlabci",
+    "gitlabci-include",
     "gradle",
     "gradle-wrapper"
   ],
