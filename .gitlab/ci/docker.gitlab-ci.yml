@@ -1,8 +1,8 @@
 DockerImageBuild:
   stage: docker
-  image: docker:24.0.6-git
+  image: docker:24.0.7-git
   services:
-    - name: docker:24.0.6-dind-alpine3.18
+    - name: docker:24.0.7-dind-alpine3.18
       alias: docker
   before_script:
     # Login GitLab container registry
@@ -40,9 +40,9 @@ DockerImageBuild:
 
 DangerDockerImageBuild:
   stage: docker
-  image: docker:24.0.6-git
+  image: docker:24.0.7-git
   services:
-    - name: docker:24.0.6-dind-alpine3.18
+    - name: docker:24.0.7-dind-alpine3.18
       alias: docker
   before_script:
     # Login GitLab container registry
