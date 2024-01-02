@@ -29,8 +29,8 @@ unitTest:
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
     # When the MR source is a feature / fix / hotfix / renovate branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"  ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate"
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature/"  ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix/"      ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix/"   ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate/"
   interruptible: true
