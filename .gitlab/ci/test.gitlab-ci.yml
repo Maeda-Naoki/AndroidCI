@@ -20,7 +20,7 @@ unitTest:
     # Commit to main / develop branch
     - if: $CI_COMMIT_BRANCH == "main" ||
           $CI_COMMIT_BRANCH == "develop"
-    # Commit to feature / fix branch
+    # Commit to feature / fix / hotfix / renovate branch
     - if: $CI_COMMIT_BRANCH =~ "/^feature/" ||
           $CI_COMMIT_BRANCH =~ "/^fix/"     ||
           $CI_COMMIT_BRANCH =~ "/^hotfix/"  ||
@@ -28,7 +28,7 @@ unitTest:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
-    # When the MR source is a feature / fix branch
+    # When the MR source is a feature / fix / hotfix / renovate branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"  ||
