@@ -19,7 +19,8 @@ debugBuild:
     # Commit to feature / fix branch
     - if: $CI_COMMIT_BRANCH =~ "/^feature/" ||
           $CI_COMMIT_BRANCH =~ "/^fix/"     ||
-          $CI_COMMIT_BRANCH =~ "/^hotfix/"
+          $CI_COMMIT_BRANCH =~ "/^hotfix/"  ||
+          $CI_COMMIT_BRANCH =~ "/^renovate/"
       when: always
       allow_failure: true
     # When the MR target is the main / develop branch
@@ -30,7 +31,8 @@ debugBuild:
     # When the MR source is a feature / fix branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"  ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate"
       when: manual
       allow_failure: true
   interruptible: true
@@ -61,7 +63,8 @@ releaseBuild:
     - if: $CI_COMMIT_BRANCH =~ "develop"    ||
           $CI_COMMIT_BRANCH =~ "/^feature/" ||
           $CI_COMMIT_BRANCH =~ "/^fix/"     ||
-          $CI_COMMIT_BRANCH =~ "/^hotfix/"
+          $CI_COMMIT_BRANCH =~ "/^hotfix/"  ||
+          $CI_COMMIT_BRANCH =~ "/^renovate/"
       when: manual
       allow_failure: true
   interruptible: true

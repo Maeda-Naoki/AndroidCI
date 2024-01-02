@@ -21,7 +21,8 @@ ktlint:
     # When the MR source is a feature / fix branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"  ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate"
   interruptible: true
 
 androidLint:
@@ -47,7 +48,8 @@ androidLint:
     # When the MR source is a feature / fix branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"  ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate"
   interruptible: true
 
 danger:
@@ -63,5 +65,6 @@ danger:
     # When the MR source is a feature / fix branch
     - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"  ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate"
   interruptible: true
