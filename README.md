@@ -34,8 +34,6 @@ This project is intended to be the base of the Android project.
     - [X] [Renovate](https://github.com/renovatebot/renovate#renovate)
 
 ## Repository Setting
-### for GitLab
-#### Required
 ##### Auto-cancel redundant pipelines
 ![Static Badge](https://img.shields.io/badge/Required-F44336)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=orange)  
@@ -43,8 +41,6 @@ This GitLab CI uses interruptible flag to enable auto-cancel pipelines.
 Therefore, please enable GitLab's [auto-cancel redundant pipelines](https://docs.gitlab.com/ee/ci/pipelines/settings.html#auto-cancel-redundant-pipelines).
 
 ## Environment Variables
-### Common
-#### Required
 ##### Release Build variables
 You must set the below environment variables to do a **Release build** .  
 ###### KEYSTORE_FILE_BASE64
@@ -90,7 +86,6 @@ Please refer to the following site for the settings required to create the token
   - [GitHub](https://docs.renovatebot.com/modules/platform/github/)
   - [GitLab](https://docs.renovatebot.com/modules/platform/gitlab/)
 
-#### Overwritable
 ##### Build variables
 The following values are set to default values, but you can override them from the repository settings.  
 ###### ANDROID_COMPILE_SDK
@@ -116,8 +111,6 @@ Please refer to the ★ portion of the following values for version values.
 `commandlinetools-linux-{★}_latest.zip`  
 Ref : [Command-line tools](https://developer.android.com/studio#downloads)
 
-### for GitLab CI
-#### Required
 ##### Merge Request variables
 You must set the below environment variables to do a **Merge Request** .  
 ###### DANGER_GITLAB_API_TOKEN
