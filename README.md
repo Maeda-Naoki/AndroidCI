@@ -82,9 +82,8 @@ API token for Renovate.
 The token is required for automatic Updates of Dependencies by Renovate.  
 Please refer to the following site for the settings required to create the token.  
 
-- Ref
-  - [GitHub](https://docs.renovatebot.com/modules/platform/github/)
-  - [GitLab](https://docs.renovatebot.com/modules/platform/gitlab/)
+- [GitHub](https://docs.renovatebot.com/modules/platform/github/)
+- [GitLab](https://docs.renovatebot.com/modules/platform/gitlab/)
 
 ### Build variables
 The following values are set to default values, but you can override them from the repository settings.  
