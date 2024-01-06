@@ -16,10 +16,11 @@ debugBuild:
           $CI_COMMIT_BRANCH == "develop"
       when: always
       allow_failure: false
-    # Commit to feature / fix branch
-    - if: $CI_COMMIT_BRANCH =~ "/^feature/" ||
-          $CI_COMMIT_BRANCH =~ "/^fix/"     ||
-          $CI_COMMIT_BRANCH =~ "/^hotfix/"
+    # Commit to feature / fix / hotfix / renovate branch
+    - if: $CI_COMMIT_BRANCH =~ "/^feature/"   ||
+          $CI_COMMIT_BRANCH =~ "/^fix/"       ||
+          $CI_COMMIT_BRANCH =~ "/^hotfix/"    ||
+          $CI_COMMIT_BRANCH =~ "/^renovate/"
       when: always
       allow_failure: true
     # When the MR target is the main / develop branch
@@ -27,10 +28,11 @@ debugBuild:
           $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"
       when: always
       allow_failure: false
-    # When the MR source is a feature / fix branch
-    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature" ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix"     ||
-          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix"
+    # When the MR source is a feature / fix / hotfix / renovate branch
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^feature/"  ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^fix/"      ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^hotfix/"   ||
+          $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate/"
       when: manual
       allow_failure: true
   interruptible: true
@@ -57,11 +59,12 @@ releaseBuild:
     - if: $CI_COMMIT_BRANCH == "main"
       when: on_success
       allow_failure: false
-    # Commit to feature / fix branch
-    - if: $CI_COMMIT_BRANCH =~ "develop"    ||
-          $CI_COMMIT_BRANCH =~ "/^feature/" ||
-          $CI_COMMIT_BRANCH =~ "/^fix/"     ||
-          $CI_COMMIT_BRANCH =~ "/^hotfix/"
+    # Commit to develop / feature / fix / hotfix / renovate branch
+    - if: $CI_COMMIT_BRANCH =~ "develop"      ||
+          $CI_COMMIT_BRANCH =~ "/^feature/"   ||
+          $CI_COMMIT_BRANCH =~ "/^fix/"       ||
+          $CI_COMMIT_BRANCH =~ "/^hotfix/"    ||
+          $CI_COMMIT_BRANCH =~ "/^renovate/"
       when: manual
       allow_failure: true
   interruptible: true
