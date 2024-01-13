@@ -1,3 +1,4 @@
+import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -10,7 +11,7 @@ plugins {
 
 subprojects {
 	apply(plugin = "org.jlleitschuh.gradle.ktlint")
-	ktlint {
+	configure<KtlintExtension> {
 		// Ref : https://github.com/JLLeitschuh/ktlint-gradle/blob/master/plugin/src/main/kotlin/org/jlleitschuh/gradle/ktlint/KtlintExtension.kt
 		debug.set(true) // Enable debug mode.
 		verbose.set(true) // Enable verbose mode.
