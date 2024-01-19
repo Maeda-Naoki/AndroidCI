@@ -1,6 +1,6 @@
 DockerImageBuild:
   stage: docker
-  image: docker:24.0.7-git
+  image: docker:25.0.0-git
   services:
     - name: docker:24.0.7-dind-alpine3.18
       alias: docker
@@ -40,7 +40,7 @@ DockerImageBuild:
 
 DangerDockerImageBuild:
   stage: docker
-  image: docker:24.0.7-git
+  image: docker:25.0.0-git
   services:
     - name: docker:24.0.7-dind-alpine3.18
       alias: docker
