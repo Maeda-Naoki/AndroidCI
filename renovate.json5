@@ -9,7 +9,6 @@
   "baseBranches": ["main"],
   "branchPrefix": "renovate/",
   "enabledManagers": [                                  // list of package managers
-    "bundler",
     "dockerfile",
     "gitlabci",
     "gitlabci-include",
@@ -33,10 +32,6 @@
       "groupName": "Android Jetpack library",
       "matchPackagePatterns": ["^androidx"],
       "excludePackagePatterns": ["^androidx.test"]
-    },
-    {
-      "groupName": "Danger",
-      "matchPackagePatterns": ["^danger"]
     }
   ]
 }
