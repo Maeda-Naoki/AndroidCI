@@ -5,3 +5,10 @@ FROM alpine:3.19.1
 LABEL maintainer="maeda.naoki.md9@gmail.com"
 LABEL version="1.0.0"
 
+# Docker image build args
+## ReviewDog args
+### Installer URL
+ARG REVIEWDOG_INSTALLER_DL_URL="https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh"
+
+### ReviewDog version
+ARG REVIEWDOG_VERSION="0.17.1"
