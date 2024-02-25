@@ -12,3 +12,8 @@ ARG REVIEWDOG_INSTALLER_DL_URL="https://raw.githubusercontent.com/reviewdog/revi
 
 ### ReviewDog version
 ARG REVIEWDOG_VERSION="0.17.1"
+
+# Install dependencies
+RUN apk update && apk --no-cache add \
+    git=2.43.0-r0
+
