@@ -17,3 +17,6 @@ ARG REVIEWDOG_VERSION="0.17.1"
 RUN apk update && apk --no-cache add \
     git=2.43.0-r0
 
+# Install ReviewDog
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+RUN wget -O - -q ${REVIEWDOG_INSTALLER_DL_URL} | sh -s "v${REVIEWDOG_VERSION}"
