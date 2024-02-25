@@ -38,7 +38,7 @@ DockerImageBuild:
         - Dockerfile
   interruptible: true
 
-DangerDockerImageBuild:
+ReviewdogDockerImageBuild:
   stage: docker
   image: docker:25.0.3-git
   services:
@@ -49,7 +49,7 @@ DangerDockerImageBuild:
     - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY
   script:
     # Get Docker image version from Dockerfile
-    - version=$(grep 'LABEL version=' Danger.Dockerfile | sed -e 's/.*=//' -e 's/"//g')
+    - version=$(grep 'LABEL version=' ReviewDog.Dockerfile | sed -e 's/.*=//' -e 's/"//g')
     # Set default version when there is no version label in the DockerImage
     - |
       if [ -z "$version" ] || [ ! -n "$version" ] || [ "$version" = "<no value>" ] || [ "$version" = "null" ]; then
@@ -64,17 +64,16 @@ DangerDockerImageBuild:
     # Build Docker image & Push Docker images to GitLab container registry
     - >
       docker buildx build
-      --file Danger.Dockerfile
-      --cache-from type=registry,ref=$CI_REGISTRY_IMAGE/danger:latest
+      --file ReviewDog.Dockerfile
+      --cache-from type=registry,ref=$CI_REGISTRY_IMAGE/reviewdog:latest
       --platform linux/amd64,linux/arm64
-      -t $CI_REGISTRY_IMAGE/danger:latest
-      -t $CI_REGISTRY_IMAGE/danger:$version
+      -t $CI_REGISTRY_IMAGE/reviewdog:latest
+      -t $CI_REGISTRY_IMAGE/reviewdog:$version
       --push
       .
   rules:
     # Run a job only when the Dockerfile is changed.
     - changes:
         - .gitlab/ci/docker.gitlab-ci.yml
-        - Danger.Dockerfile
-        - Gemfile
+        - ReviewDog.Dockerfile
   interruptible: true
