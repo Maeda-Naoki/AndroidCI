@@ -56,10 +56,10 @@ android {
 		checkAllWarnings = true
 		// if true, generate a text report of issues (false by default)
 		textReport = true
-		// if true, generate an XML report for use by for example Jenkins
-		xmlReport = true
-		// file to write report to (if not specified, defaults to lint-results.xml)
-		xmlOutput = file("${layout.buildDirectory.get()}/reports/lint-report.xml")
+		// Whether we should write a SARIF (OASIS Static Analysis Results Interchange Format) report.
+		sarifReport = true
+		// The optional path to where a SARIF report (OASIS Static Analysis Results Interchange Format) should be written.
+		sarifOutput = file("${layout.buildDirectory.get()}/reports/lint-report.sarif")
 	}
 
 	buildFeatures {
