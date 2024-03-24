@@ -13,7 +13,7 @@ This project is intended to be the base of the Android project.
   - [ ] Lint
     - [ ] [Ktlint Gradle](https://github.com/JLLeitschuh/ktlint-gradle)
     - [ ] [Android Lint](https://developer.android.com/studio/write/lint)
-    - [ ] [Danger](https://github.com/danger/danger)
+    - [ ] [Reviewdog](https://github.com/reviewdog/reviewdog)
   - [ ] Test
     - [ ] UnitTest
     - [ ] Instrumented Unit Tests
@@ -26,7 +26,7 @@ This project is intended to be the base of the Android project.
   - [X] Lint
     - [X] [Ktlint Gradle](https://github.com/JLLeitschuh/ktlint-gradle)
     - [X] [Android Lint](https://developer.android.com/studio/write/lint)
-    - [X] [Danger](https://github.com/danger/danger)
+    - [X] [Reviewdog](https://github.com/reviewdog/reviewdog)
   - [X] Test
     - [X] UnitTest
     - [ ] Instrumented Unit Tests
