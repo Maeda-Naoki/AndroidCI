@@ -39,7 +39,7 @@ androidLint:
       - ./.gradleHome
   artifacts:
     paths:
-      - ./**/build/reports/lint-report.xml
+      - ./**/build/reports/lint-report.sarif
     expire_in: 1 day
   rules:
     # When the MR target is the main / develop branch
