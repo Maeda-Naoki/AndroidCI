@@ -39,7 +39,7 @@ androidLint:
       - ./.gradleHome
   artifacts:
     paths:
-      - ./**/build/reports/lint-report.xml
+      - ./**/build/reports/lint-report.sarif
     expire_in: 1 day
   rules:
     # When the MR target is the main / develop branch
@@ -52,12 +52,31 @@ androidLint:
           $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ "/^renovate/"
   interruptible: true
 
-danger:
+reviewdog:
   stage: lint
-  image: $CI_REGISTRY_IMAGE/danger:latest
+  image: $CI_REGISTRY_IMAGE/reviewdog:latest
   needs: ["ktlint", "androidLint"]
   script:
-    - bundle exec danger
+    # Display ktlint result
+    - >
+      for file in $(find . -regex '^.*/build/reports/ktlint/*/.*\.xml$' -type f); do
+        cat $file                         |
+        reviewdog                         \
+          -f=checkstyle                   \
+          -name=ktlint                    \
+          -reporter=gitlab-mr-discussion  \
+          -filter-mode=file
+      done
+    # Display Android Lint result
+    - >
+      for file in $(find . -regex '^.*/build/reports/lint-results.*\.sarif$' -type f); do
+        cat $file                         |
+        reviewdog                         \
+          -f=sarif                        \
+          -name=AndroidLint               \
+          -reporter=gitlab-mr-discussion  \
+          -filter-mode=file
+      done
   rules:
     # When the MR target is the main / develop branch
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main" ||
