@@ -112,8 +112,9 @@ Ref : [Command-line tools](https://developer.android.com/studio#downloads)
 
 ### Merge Request variables
 You must set the below environment variables to do a **Merge Request** .  
-#### DANGER_GITLAB_API_TOKEN
+#### REVIEWDOG_GITLAB_API_TOKEN
 ![Static Badge](https://img.shields.io/badge/Required-F44336)
 ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=orange)  
-An access token for the account which will post comments.  
-Please create an account to post comments in advance.
+An access token for the account which will post MR comments.  
+Please create an account to post MR comments in advance.  
+Get the token with `api` scope from https://gitlab.com/-/user_settings/personal_access_tokens.
