@@ -2,7 +2,7 @@ DockerImageBuild:
   stage: docker
   image: docker:25.0.5-git
   services:
-    - name: docker:26.0.2-dind-alpine3.19
+    - name: docker:26.1.0-dind-alpine3.19
       alias: docker
   before_script:
     # Login GitLab container registry
@@ -42,7 +42,7 @@ ReviewdogDockerImageBuild:
   stage: docker
   image: docker:25.0.5-git
   services:
-    - name: docker:26.0.2-dind-alpine3.19
+    - name: docker:26.1.0-dind-alpine3.19
       alias: docker
   before_script:
     # Login GitLab container registry
