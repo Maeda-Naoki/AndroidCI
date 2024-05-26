@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM alpine:3.19.1
+FROM alpine:3.20.0
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
@@ -15,7 +15,7 @@ ARG REVIEWDOG_VERSION="0.17.1"
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
-    git=2.43.4-r0
+    git=2.45.1-r0
 
 # Install ReviewDog
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
