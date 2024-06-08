@@ -15,7 +15,7 @@ ARG REVIEWDOG_VERSION="0.17.1"
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
-    git=2.45.1-r0
+    git=2.45.2-r0
 
 # Install ReviewDog
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
