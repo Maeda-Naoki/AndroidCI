@@ -1,6 +1,7 @@
 plugins {
 	id("com.android.application")
 	id("org.jetbrains.kotlin.android")
+	id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -63,23 +64,52 @@ android {
 	}
 
 	buildFeatures {
+		compose = true
 		viewBinding = true
 	}
+}
+
+composeCompiler {
+	enableStrongSkippingMode = true
 }
 
 dependencies {
 	// Implementation
 	implementation(libs.core.ktx)
-	implementation(libs.appcompat)
-	implementation(libs.material)
-	implementation(libs.constraintlayout)
-	implementation(libs.navigation.fragment.ktx)
-	implementation(libs.navigation.ui.ktx)
+	implementation(libs.activity.compose)
+
+	// Jetpack Compose
+	implementation(platform(libs.compose.bom))
+	implementation(libs.compose.foundation)
+	implementation(libs.compose.foundation.layout)
+	implementation(libs.compose.material3)
+	implementation(libs.compose.runtime)
+	implementation(libs.compose.runtime.livedata)
+	implementation(libs.compose.ui)
+	implementation(libs.compose.ui.graphics)
+	implementation(libs.compose.ui.tooling.preview)
+	implementation(libs.compose.ui.viewbinding)
+
+	// Lifecycle
+	implementation(libs.lifecycle.viewmodel.ktx)
+	implementation(libs.lifecycle.viewmodel.compose)
+	implementation(libs.lifecycle.livedata.ktx)
+	implementation(libs.lifecycle.runtime.compose)
+
+	// Coroutines
+	implementation(libs.kotlinx.coroutines.core)
+	implementation(libs.kotlinx.coroutines.android)
+
+	// Debug Implementation
+	debugImplementation(libs.compose.ui.tooling)
 
 	// Test Implementation
 	testImplementation(libs.junit)
+	testImplementation(libs.compose.ui.test.junit4)
+	testImplementation(libs.compose.ui.test.manifest)
 
 	// Android Test Implementation
 	androidTestImplementation(libs.androidx.test.ext.junit)
 	androidTestImplementation(libs.espresso.core)
+	androidTestImplementation(libs.kotlinx.coroutines.test)
 }
