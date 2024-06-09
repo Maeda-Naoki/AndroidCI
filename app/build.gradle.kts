@@ -96,6 +96,10 @@ dependencies {
 	implementation(libs.lifecycle.livedata.ktx)
 	implementation(libs.lifecycle.runtime.compose)
 
+	// Coroutines
+	implementation(libs.kotlinx.coroutines.core)
+	implementation(libs.kotlinx.coroutines.android)
+
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
 
@@ -107,4 +111,5 @@ dependencies {
 	// Android Test Implementation
 	androidTestImplementation(libs.androidx.test.ext.junit)
 	androidTestImplementation(libs.espresso.core)
+	androidTestImplementation(libs.kotlinx.coroutines.test)
 }

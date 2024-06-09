@@ -8,6 +8,7 @@ ktlint 						= "12.1.1"
 ## Implementation
 activity-compose 			= "1.9.0"
 core-ktx 					= "1.13.1"
+coroutines 					= "1.8.1"
 jetpack-compose-bom 		= "2024.05.00"
 lifecycle 					= "2.8.1"
 
@@ -41,6 +42,11 @@ lifecycle-viewmodel-ktx 	= { module = "androidx.lifecycle:lifecycle-viewmodel-kt
 lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
 lifecycle-livedata-ktx 		= { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
 lifecycle-runtime-compose 	= { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+
+# Coroutines
+kotlinx-coroutines-core 	= { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-android 	= { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+
 # Debug Implementation
 compose-ui-tooling 			= { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-test-manifest 	= { module = "androidx.compose.ui:ui-test-manifest" }
@@ -52,6 +58,7 @@ junit						= { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit 	= { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 compose-ui-test-junit4 		= { module = "androidx.compose.ui:ui-test-junit4" }
 espresso-core 				= { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+kotlinx-coroutines-test 	= { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 
 
 [plugins]
