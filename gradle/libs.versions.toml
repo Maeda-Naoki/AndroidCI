@@ -9,6 +9,7 @@ ktlint 						= "12.1.1"
 activity-compose 			= "1.9.0"
 core-ktx 					= "1.13.1"
 jetpack-compose-bom 		= "2024.05.00"
+lifecycle 					= "2.8.1"
 
 ## Test Implementation
 junit 						= "4.13.2"
@@ -34,6 +35,12 @@ compose-ui 					= { module = "androidx.compose.ui:ui" }
 compose-ui-graphics 		= { module = "androidx.compose.ui:ui-graphics" }
 compose-ui-tooling-preview 	= { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-ui-viewbinding 		= { module = "androidx.compose.ui:ui-viewbinding" }
+
+# Lifecycle
+lifecycle-viewmodel-ktx 	= { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+lifecycle-livedata-ktx 		= { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+lifecycle-runtime-compose 	= { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
 # Debug Implementation
 compose-ui-tooling 			= { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-test-manifest 	= { module = "androidx.compose.ui:ui-test-manifest" }

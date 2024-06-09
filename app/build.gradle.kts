@@ -90,6 +90,12 @@ dependencies {
 	implementation(libs.compose.ui.tooling.preview)
 	implementation(libs.compose.ui.viewbinding)
 
+	// Lifecycle
+	implementation(libs.lifecycle.viewmodel.ktx)
+	implementation(libs.lifecycle.viewmodel.compose)
+	implementation(libs.lifecycle.livedata.ktx)
+	implementation(libs.lifecycle.runtime.compose)
+
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
 
