@@ -100,6 +100,9 @@ dependencies {
 	implementation(libs.kotlinx.coroutines.core)
 	implementation(libs.kotlinx.coroutines.android)
 
+	// Navigation
+	implementation(libs.navigation.compose)
+
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
 
