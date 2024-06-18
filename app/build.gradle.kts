@@ -100,6 +100,9 @@ dependencies {
 	implementation(libs.kotlinx.coroutines.core)
 	implementation(libs.kotlinx.coroutines.android)
 
+	// Navigation
+	implementation(libs.navigation.compose)
+
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
 
@@ -112,4 +115,5 @@ dependencies {
 	androidTestImplementation(libs.androidx.test.ext.junit)
 	androidTestImplementation(libs.espresso.core)
 	androidTestImplementation(libs.kotlinx.coroutines.test)
+	androidTestImplementation(libs.navigation.testing)
 }
