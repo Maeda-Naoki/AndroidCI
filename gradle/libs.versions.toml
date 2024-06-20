@@ -3,6 +3,7 @@
 android-gradle-plugin 		= "8.5.0"
 kotlin 						= "2.0.0"
 ktlint 						= "12.1.1"
+dokka						= "1.9.20"
 
 # Libraries
 ## Implementation
@@ -71,4 +72,5 @@ androidApplication			= { id = "com.android.application", version.ref = "android-
 androidLibrary 				= { id = "com.android.library", version.ref = "android-gradle-plugin" }
 kotlinAndroid				= { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 composeCompiler				= { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+dokka						= { id = "org.jetbrains.dokka", version.ref = "dokka" }
 ktlint 						= { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
