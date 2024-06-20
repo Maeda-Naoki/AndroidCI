@@ -37,6 +37,15 @@ subprojects {
 
 			// Used for linking to JDK documentation
 			jdkVersion.set(11)
+
+			// Allows linking to online kotlin-stdlib documentation
+			noStdlibLink.set(false)
+
+			// Allows linking to online JDK documentation
+			noJdkLink.set(false)
+
+			// Allows linking to online Android documentation (only applicable for Android projects)
+			noAndroidSdkLink.set(false)
 		}
 	}
 }
