@@ -27,4 +27,16 @@ subprojects {
 			reporter(ReporterType.CHECKSTYLE) // Enable checkstyle reporter
 		}
 	}
+
+	// Dokka
+	apply(plugin = "org.jetbrains.dokka")
+	tasks.dokkaHtml.configure {
+		dokkaSourceSets.configureEach {
+			// Do not create index pages for empty packages
+			skipEmptyPackages.set(true)
+
+			// Used for linking to JDK documentation
+			jdkVersion.set(11)
+		}
+	}
 }
