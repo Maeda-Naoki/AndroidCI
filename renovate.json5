@@ -32,6 +32,10 @@
       "groupName": "Android Jetpack library",
       "matchPackagePatterns": ["^androidx"],
       "excludePackagePatterns": ["^androidx.test"]
+    },
+    {
+      "groupName": "Dokka",
+      "matchPackagePatterns": ["^org.jetbrains.dokka"]
     }
   ]
 }
