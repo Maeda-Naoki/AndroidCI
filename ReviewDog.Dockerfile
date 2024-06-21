@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM alpine:3.20.0
+FROM alpine:3.20.1
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
