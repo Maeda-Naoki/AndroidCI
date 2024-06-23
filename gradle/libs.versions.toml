@@ -10,6 +10,7 @@ activity-compose 			= "1.9.0"
 core-ktx 					= "1.13.1"
 coroutines 					= "1.8.1"
 jetpack-compose-bom 		= "2024.06.00"
+ksp                         = "2.0.0-1.0.22"
 lifecycle 					= "2.8.2"
 
 ## Test Implementation
@@ -64,6 +65,7 @@ kotlinx-coroutines-test 	= { module = "org.jetbrains.kotlinx:kotlinx-coroutines-
 [plugins]
 androidApplication			= { id = "com.android.application", version.ref = "android-gradle-plugin" }
 androidLibrary 				= { id = "com.android.library", version.ref = "android-gradle-plugin" }
+ksp                         = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 kotlinAndroid				= { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 composeCompiler				= { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 ktlint 						= { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
