@@ -1,5 +1,7 @@
 plugins {
 	id("com.android.application")
+	id("com.google.dagger.hilt.android")
+	id("com.google.devtools.ksp")
 	id("org.jetbrains.kotlin.android")
 	id("org.jetbrains.kotlin.plugin.compose")
 }
@@ -100,6 +102,13 @@ dependencies {
 	implementation(libs.kotlinx.coroutines.core)
 	implementation(libs.kotlinx.coroutines.android)
 
+	// Hilt
+	implementation(libs.dagger.hilt.android)
+	implementation(libs.hilt.navigation.compose)
+	ksp(libs.dagger.hilt.android.compiler)
+	ksp(libs.dagger.hilt.compiler)
+	ksp(libs.hilt.compiler)
+
 	// Navigation
 	implementation(libs.navigation.compose)
 
@@ -110,10 +119,18 @@ dependencies {
 	testImplementation(libs.junit)
 	testImplementation(libs.compose.ui.test.junit4)
 	testImplementation(libs.compose.ui.test.manifest)
+	testImplementation(libs.dagger.hilt.android.testing)
+	kspTest(libs.dagger.hilt.android.compiler)
+	kspTest(libs.dagger.hilt.compiler)
+	kspTest(libs.hilt.compiler)
 
 	// Android Test Implementation
 	androidTestImplementation(libs.androidx.test.ext.junit)
 	androidTestImplementation(libs.espresso.core)
+	androidTestImplementation(libs.dagger.hilt.android.testing)
+	kspAndroidTest(libs.dagger.hilt.android.compiler)
+	kspAndroidTest(libs.dagger.hilt.compiler)
+	kspAndroidTest(libs.hilt.compiler)
 	androidTestImplementation(libs.kotlinx.coroutines.test)
 	androidTestImplementation(libs.navigation.testing)
 }
