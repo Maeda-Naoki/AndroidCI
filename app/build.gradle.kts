@@ -104,8 +104,10 @@ dependencies {
 
 	// Hilt
 	implementation(libs.dagger.hilt.android)
+	implementation(libs.hilt.navigation.compose)
 	ksp(libs.dagger.hilt.android.compiler)
 	ksp(libs.dagger.hilt.compiler)
+	ksp(libs.hilt.compiler)
 
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
@@ -117,6 +119,7 @@ dependencies {
 	testImplementation(libs.dagger.hilt.android.testing)
 	kspTest(libs.dagger.hilt.android.compiler)
 	kspTest(libs.dagger.hilt.compiler)
+	kspTest(libs.hilt.compiler)
 
 	// Android Test Implementation
 	androidTestImplementation(libs.androidx.test.ext.junit)
@@ -124,5 +127,6 @@ dependencies {
 	androidTestImplementation(libs.dagger.hilt.android.testing)
 	kspAndroidTest(libs.dagger.hilt.android.compiler)
 	kspAndroidTest(libs.dagger.hilt.compiler)
+	kspAndroidTest(libs.hilt.compiler)
 	androidTestImplementation(libs.kotlinx.coroutines.test)
 }

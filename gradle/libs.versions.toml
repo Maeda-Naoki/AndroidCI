@@ -10,6 +10,7 @@ activity-compose 			= "1.9.0"
 core-ktx 					= "1.13.1"
 coroutines 					= "1.8.1"
 hilt						= "2.51.1"
+androidx-hilt				= "1.2.0"
 jetpack-compose-bom 		= "2024.06.00"
 ksp                         = "2.0.0-1.0.22"
 lifecycle 					= "2.8.2"
@@ -53,6 +54,8 @@ kotlinx-coroutines-android 	= { module = "org.jetbrains.kotlinx:kotlinx-coroutin
 dagger-hilt-android			= { module = "com.google.dagger:hilt-android", version.ref = "hilt"}
 dagger-hilt-android-compiler= { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt"}
 dagger-hilt-compiler		= { module = "com.google.dagger:hilt-compiler", version.ref = "hilt"}
+hilt-compiler				= { module = "androidx.hilt:hilt-compiler", version.ref = "androidx-hilt"}
+hilt-navigation-compose		= { module = "androidx.hilt:hilt-navigation-compose", version.ref = "androidx-hilt"}
 
 # Debug Implementation
 compose-ui-tooling 			= { module = "androidx.compose.ui:ui-tooling" }
