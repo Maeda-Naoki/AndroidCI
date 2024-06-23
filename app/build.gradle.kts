@@ -109,6 +109,9 @@ dependencies {
 	ksp(libs.dagger.hilt.compiler)
 	ksp(libs.hilt.compiler)
 
+	// Navigation
+	implementation(libs.navigation.compose)
+
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
 
@@ -129,4 +132,5 @@ dependencies {
 	kspAndroidTest(libs.dagger.hilt.compiler)
 	kspAndroidTest(libs.hilt.compiler)
 	androidTestImplementation(libs.kotlinx.coroutines.test)
+	androidTestImplementation(libs.navigation.testing)
 }

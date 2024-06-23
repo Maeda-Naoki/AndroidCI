@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM alpine:3.20.0
+FROM alpine:3.20.1
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
@@ -11,7 +11,7 @@ LABEL version="1.0.0"
 ARG REVIEWDOG_INSTALLER_DL_URL="https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh"
 
 ### ReviewDog version
-ARG REVIEWDOG_VERSION="0.17.1"
+ARG REVIEWDOG_VERSION="0.18.0"
 
 # Install dependencies
 RUN apk update && apk --no-cache add \

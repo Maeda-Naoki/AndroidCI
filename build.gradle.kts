@@ -7,6 +7,7 @@ plugins {
 	alias(libs.plugins.androidLibrary) apply false
 	alias(libs.plugins.kotlinAndroid) apply false
 	alias(libs.plugins.composeCompiler) apply false
+	alias(libs.plugins.dokka)
 	alias(libs.plugins.hilt) apply false
 	alias(libs.plugins.ksp) apply false
 	alias(libs.plugins.ktlint)
@@ -26,6 +27,27 @@ subprojects {
 		reporters {
 			reporter(ReporterType.PLAIN) // Enable console reporter
 			reporter(ReporterType.CHECKSTYLE) // Enable checkstyle reporter
+		}
+	}
+
+	// Dokka
+	apply(plugin = "org.jetbrains.dokka")
+	tasks.dokkaHtml.configure {
+		dokkaSourceSets.configureEach {
+			// Do not create index pages for empty packages
+			skipEmptyPackages.set(true)
+
+			// Used for linking to JDK documentation
+			jdkVersion.set(11)
+
+			// Allows linking to online kotlin-stdlib documentation
+			noStdlibLink.set(false)
+
+			// Allows linking to online JDK documentation
+			noJdkLink.set(false)
+
+			// Allows linking to online Android documentation (only applicable for Android projects)
+			noAndroidSdkLink.set(false)
 		}
 	}
 }
