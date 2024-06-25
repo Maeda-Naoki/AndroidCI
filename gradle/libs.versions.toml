@@ -22,7 +22,7 @@ junit 						= "4.13.2"
 
 ## Android Test Implementation
 androidx-test-ext-junit 	= "1.2.0"
-espresso-core 				= "3.5.1"
+espresso-core 				= "3.6.0"
 
 
 [libraries]
