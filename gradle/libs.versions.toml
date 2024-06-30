@@ -18,7 +18,7 @@ lifecycle 					= "2.8.2"
 navigation					= "2.7.7"
 
 ## Test Implementation
-junit 						= "4.13.2"
+kotest						= "5.9.1"
 
 ## Android Test Implementation
 androidx-test-ext-junit 	= "1.2.1"
@@ -67,7 +67,9 @@ compose-ui-tooling 			= { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-test-manifest 	= { module = "androidx.compose.ui:ui-test-manifest" }
 
 # Test Implementation
-junit						= { group = "junit", name = "junit", version.ref = "junit" }
+kotest-assertions-core		= { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-runner-junit5		= { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-property				= { module = "io.kotest:kotest-property", version.ref = "kotest" }
 dagger-hilt-android-testing	= { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt"}
 
 # Android Test Implementation

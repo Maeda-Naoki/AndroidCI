@@ -65,6 +65,12 @@ android {
 		sarifOutput = file("${layout.buildDirectory.get()}/reports/lint-report.sarif")
 	}
 
+	testOptions {
+		unitTests.all {
+			it.useJUnitPlatform()
+		}
+	}
+
 	buildFeatures {
 		compose = true
 		viewBinding = true
@@ -116,9 +122,11 @@ dependencies {
 	debugImplementation(libs.compose.ui.tooling)
 
 	// Test Implementation
-	testImplementation(libs.junit)
 	testImplementation(libs.compose.ui.test.junit4)
 	testImplementation(libs.compose.ui.test.manifest)
+	testImplementation(libs.kotest.assertions.core)
+	testImplementation(libs.kotest.runner.junit5)
+	testImplementation(libs.kotest.property)
 	testImplementation(libs.dagger.hilt.android.testing)
 	kspTest(libs.dagger.hilt.android.compiler)
 	kspTest(libs.dagger.hilt.compiler)
