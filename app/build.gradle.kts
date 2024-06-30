@@ -65,6 +65,12 @@ android {
 		sarifOutput = file("${layout.buildDirectory.get()}/reports/lint-report.sarif")
 	}
 
+	testOptions {
+		unitTests.all {
+			it.useJUnitPlatform()
+		}
+	}
+
 	buildFeatures {
 		compose = true
 		viewBinding = true
