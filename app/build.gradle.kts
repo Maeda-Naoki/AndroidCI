@@ -118,6 +118,9 @@ dependencies {
 	// Test Implementation
 	testImplementation(libs.compose.ui.test.junit4)
 	testImplementation(libs.compose.ui.test.manifest)
+	testImplementation(libs.kotest.assertions.core)
+	testImplementation(libs.kotest.runner.junit5)
+	testImplementation(libs.kotest.property)
 	testImplementation(libs.dagger.hilt.android.testing)
 	kspTest(libs.dagger.hilt.android.compiler)
 	kspTest(libs.dagger.hilt.compiler)
