@@ -116,7 +116,6 @@ dependencies {
 	debugImplementation(libs.compose.ui.tooling)
 
 	// Test Implementation
-	testImplementation(libs.junit)
 	testImplementation(libs.compose.ui.test.junit4)
 	testImplementation(libs.compose.ui.test.manifest)
 	testImplementation(libs.dagger.hilt.android.testing)
