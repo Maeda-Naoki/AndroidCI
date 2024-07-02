@@ -13,6 +13,7 @@ coroutines 					= "1.8.1"
 hilt						= "2.51.1"
 androidx-hilt				= "1.2.0"
 jetpack-compose-bom 		= "2024.06.00"
+compose-material-icons		= "1.6.8"
 ksp                         = "2.0.0-1.0.22"
 lifecycle 					= "2.8.3"
 navigation					= "2.7.7"
@@ -41,6 +42,9 @@ compose-ui 					= { module = "androidx.compose.ui:ui" }
 compose-ui-graphics 		= { module = "androidx.compose.ui:ui-graphics" }
 compose-ui-tooling-preview 	= { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-ui-viewbinding 		= { module = "androidx.compose.ui:ui-viewbinding" }
+
+### Material Icons
+compose-material-icons		= { module = "androidx.compose.material:material-icons-extended-android", version.ref = "compose-material-icons" }
 
 # Lifecycle
 lifecycle-viewmodel-ktx 	= { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }

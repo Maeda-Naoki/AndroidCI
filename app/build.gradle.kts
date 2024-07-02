@@ -98,6 +98,9 @@ dependencies {
 	implementation(libs.compose.ui.tooling.preview)
 	implementation(libs.compose.ui.viewbinding)
 
+	// Material Icons
+	implementation(libs.compose.material.icons)
+
 	// Lifecycle
 	implementation(libs.lifecycle.viewmodel.ktx)
 	implementation(libs.lifecycle.viewmodel.compose)
