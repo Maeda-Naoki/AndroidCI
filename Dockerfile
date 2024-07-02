@@ -7,7 +7,7 @@ FROM amazoncorretto:21.0.3-alpine3.19 AS setup
 ARG ANDROID_COMPILE_SDK="34"
 
 ### Android SDK Build-Tools version
-ARG ANDROID_BUILD_TOOLS="34.0.0"
+ARG ANDROID_BUILD_TOOLS="35.0.0"
 
 ### Command-line tools version
 #### Ref : https://developer.android.com/studio#downloads
