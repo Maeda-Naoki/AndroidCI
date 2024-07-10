@@ -29,9 +29,8 @@
       "matchDepNames": ["com.android.application", "com.android.library"]
     },
     {
-      "groupName": "Android Jetpack library",
-      "matchPackagePatterns": ["^androidx"],
-      "excludePackagePatterns": ["^androidx.test"]
+      "groupName": "Android Jetpack Compose",
+      "matchPackagePatterns": ["^androidx.compose"]
     },
     {
       "groupName": "Android Lifecycle",
