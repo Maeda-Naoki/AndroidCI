@@ -38,6 +38,10 @@
       "matchPackagePatterns": ["^androidx.lifecycle"]
     },
     {
+      "groupName": "Kotlin coroutines",
+      "matchPackagePatterns": ["^org.jetbrains.kotlinx:kotlinx-coroutines"]
+    },
+    {
       "groupName": "Dokka",
       "matchPackagePatterns": ["^org.jetbrains.dokka"]
     }
