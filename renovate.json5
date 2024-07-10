@@ -29,9 +29,28 @@
       "matchDepNames": ["com.android.application", "com.android.library"]
     },
     {
-      "groupName": "Android Jetpack library",
-      "matchPackagePatterns": ["^androidx"],
-      "excludePackagePatterns": ["^androidx.test"]
+      "groupName": "Android Jetpack Compose",
+      "matchPackagePatterns": ["^androidx.compose"]
+    },
+    {
+      "groupName": "Android Lifecycle",
+      "matchPackagePatterns": ["^androidx.lifecycle"]
+    },
+    {
+      "groupName": "Kotlin coroutines",
+      "matchPackagePatterns": ["^org.jetbrains.kotlinx:kotlinx-coroutines"]
+    },
+    {
+      "groupName": "Hilt",
+      "matchPackagePatterns": ["^com.google.dagger:hilt", "^androidx.hilt:hilt"]
+    },
+    {
+      "groupName": "Android Navigation",
+      "matchPackagePatterns": ["^androidx.navigation"]
+    },
+    {
+      "groupName": "Kotest",
+      "matchPackagePatterns": ["^io.kotest:kotest"]
     },
     {
       "groupName": "Dokka",
