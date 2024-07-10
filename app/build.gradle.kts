@@ -121,6 +121,11 @@ dependencies {
 	// Navigation
 	implementation(libs.navigation.compose)
 
+	// Arrow
+	implementation(platform(libs.arrow.bom))
+	implementation(libs.arrow.core)
+	implementation(libs.arrow.fx.coroutines)
+
 	// Debug Implementation
 	debugImplementation(libs.compose.ui.tooling)
 
