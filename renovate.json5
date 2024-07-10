@@ -46,6 +46,10 @@
       "matchPackagePatterns": ["^com.google.dagger:hilt", "^androidx.hilt:hilt"]
     },
     {
+      "groupName": "Android Navigation",
+      "matchPackagePatterns": ["^androidx.navigation"]
+    },
+    {
       "groupName": "Dokka",
       "matchPackagePatterns": ["^org.jetbrains.dokka"]
     }
