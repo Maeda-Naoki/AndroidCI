@@ -50,6 +50,10 @@
       "matchPackagePatterns": ["^androidx.navigation"]
     },
     {
+      "groupName": "Kotest",
+      "matchPackagePatterns": ["^io.kotest:kotest"]
+    },
+    {
       "groupName": "Dokka",
       "matchPackagePatterns": ["^org.jetbrains.dokka"]
     }
