@@ -34,6 +34,10 @@
       "excludePackagePatterns": ["^androidx.test"]
     },
     {
+      "groupName": "Android Lifecycle",
+      "matchPackagePatterns": ["^androidx.lifecycle"]
+    },
+    {
       "groupName": "Dokka",
       "matchPackagePatterns": ["^org.jetbrains.dokka"]
     }
