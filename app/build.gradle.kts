@@ -46,6 +46,10 @@ android {
 			signingConfig = signingConfigs.getByName("debug")
 		}
 
+		// Staging Build
+		create("staging") {
+			initWith(getByName("release"))
+		}
 
 		getByName("release") {
 			isMinifyEnabled = false
