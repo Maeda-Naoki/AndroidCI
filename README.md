@@ -58,13 +58,13 @@ It is mainly intended for use in Unit Test.
 ### Staging Build
 This build type is basically the same as the Release build, but is intended for testing in the Staging environment. 
 
-- Minify : Disable
+- Minify : Enable
 - Signature : Release Key
 
 ### Release Build
 This build type is primarily intended to create a release version APK. 
 
-- Minify : Disable
+- Minify : Enable
 - Signature : Release Key
 
 
