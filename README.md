@@ -33,6 +33,41 @@ This project is intended to be the base of the Android project.
   - [X] Dependencies Update Check
     - [X] [Renovate](https://github.com/renovatebot/renovate#renovate)
 
+## Build Variants
+The following four Build Types are set.  
+We assume that you can switch between them depending on the optimization level, signature, and server settings.
+
+- [Debug](#debug-build)
+- [Local](#local-build)
+- [Staging](#staging-build)
+- [Release](#release-build)
+
+### Debug Build
+This Build Type is primarily intended for use during development.  
+
+- Minify : Disable
+- Signature : Debug Key
+
+### Local Build
+This is basically the same as Debug Build, but it is a Build Type that assumes a connection to a local server.  
+It is mainly intended for use in Unit Test.  
+
+- Minify : Disable
+- Signature : Debug Key
+
+### Staging Build
+This build type is basically the same as the Release build, but is intended for testing in the Staging environment. 
+
+- Minify : Disable
+- Signature : Release Key
+
+### Release Build
+This build type is primarily intended to create a release version APK. 
+
+- Minify : Disable
+- Signature : Release Key
+
+
 ## Repository Setting
 #### Auto-cancel redundant pipelines
 ![Static Badge](https://img.shields.io/badge/Required-F44336)
