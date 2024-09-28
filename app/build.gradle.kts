@@ -8,12 +8,12 @@ plugins {
 
 android {
 	namespace = "lucky.retriever.androidci"
-	compileSdk = 34
+	compileSdk = 35
 
 	defaultConfig {
 		applicationId = "lucky.retriever.androidci"
 		minSdk = 29
-		targetSdk = 34
+		targetSdk = 35
 		versionCode = 1
 		versionName = "1.0"
 		buildToolsVersion = "35.0.0"

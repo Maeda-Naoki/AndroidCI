@@ -1,10 +1,10 @@
 # Setup Docker image
-FROM amazoncorretto:21.0.4-alpine3.19 AS setup
+FROM amazoncorretto:21.0.4-alpine3.20 AS setup
 
 # Docker image build args
 ## Android SDK setting
 ### Compile SDK version
-ARG ANDROID_COMPILE_SDK="34"
+ARG ANDROID_COMPILE_SDK="35"
 
 ### Android SDK Build-Tools version
 ARG ANDROID_BUILD_TOOLS="35.0.0"
@@ -18,9 +18,9 @@ ARG ANDROID_SDK_ROOT="/android-sdk-linux"
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
-    wget \
-    tar \
-    unzip
+    wget=1.24.5-r0  \
+    tar=1.35-r2     \
+    unzip=6.0-r14
 
 # Download Android SDK
 RUN wget --quiet --output-document=android-sdk.zip "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip" && \
@@ -39,7 +39,7 @@ RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SD
 # =================================================================================================
 
 # Base Docker image
-FROM amazoncorretto:21.0.4-alpine3.19
+FROM amazoncorretto:21.0.4-alpine3.20
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
@@ -70,8 +70,8 @@ RUN addgroup -g ${GID} ${GroupName} && \
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
-    gcompat \
-    libgcc
+    gcompat=1.1.0-r4    \
+    libgcc=13.2.1_git20240309-r0
 
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
