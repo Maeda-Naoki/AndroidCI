@@ -4,7 +4,7 @@ FROM amazoncorretto:21.0.4-alpine3.20 AS setup
 # Docker image build args
 ## Android SDK setting
 ### Compile SDK version
-ARG ANDROID_COMPILE_SDK="34"
+ARG ANDROID_COMPILE_SDK="35"
 
 ### Android SDK Build-Tools version
 ARG ANDROID_BUILD_TOOLS="35.0.0"
