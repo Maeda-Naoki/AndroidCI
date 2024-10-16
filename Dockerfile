@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM amazoncorretto:21.0.4-alpine3.20 AS setup
+FROM amazoncorretto:21.0.5-alpine3.20 AS setup
 
 # Docker image build args
 ## Android SDK setting
@@ -39,7 +39,7 @@ RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SD
 # =================================================================================================
 
 # Base Docker image
-FROM amazoncorretto:21.0.4-alpine3.20
+FROM amazoncorretto:21.0.5-alpine3.20
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
