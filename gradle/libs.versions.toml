@@ -17,7 +17,7 @@ jetpack-compose-bom 		= "2024.10.01"
 compose-material-icons		= "1.7.5"
 ksp                         = "2.0.21-1.0.27"
 lifecycle 					= "2.8.7"
-navigation					= "2.8.3"
+navigation					= "2.8.4"
 
 ## Test Implementation
 kotest						= "5.9.1"
