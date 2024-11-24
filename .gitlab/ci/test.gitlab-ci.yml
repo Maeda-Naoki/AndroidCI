@@ -1,5 +1,7 @@
 unitTest:
   stage: test
+  tags:
+    - saas-macos-medium-m1
   image: $CI_REGISTRY_IMAGE:latest
   script:
     - ./gradlew --gradle-user-home ./.gradleHome testDebugUnitTest

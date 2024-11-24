@@ -1,5 +1,7 @@
 renovate:
   stage: dependency
+  tags:
+    - saas-macos-medium-m1
   image: renovate/renovate:37.115.0-slim
   variables:
     RENOVATE_PLATFORM: gitlab
