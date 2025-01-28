@@ -15,7 +15,7 @@ hilt						= "2.55"
 androidx-hilt				= "1.2.0"
 jetpack-compose-bom 		= "2025.01.00"
 compose-material-icons		= "1.7.6"
-ksp                         = "2.1.0-1.0.29"
+ksp                         = "2.1.10-1.0.29"
 lifecycle 					= "2.8.7"
 navigation					= "2.8.5"
 
