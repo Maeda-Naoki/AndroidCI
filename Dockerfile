@@ -11,7 +11,7 @@ ARG ANDROID_BUILD_TOOLS="36.0.0"
 
 ### Command-line tools version
 #### Ref : https://developer.android.com/studio#downloads
-ARG ANDROID_SDK_TOOLS="11076708"
+ARG ANDROID_SDK_TOOLS="13114758"
 
 ### Android SDK Path
 ARG ANDROID_SDK_ROOT="/android-sdk-linux"
