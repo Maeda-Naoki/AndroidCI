@@ -1,60 +1,87 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  // Ref: https://docs.renovatebot.com/configuration-options
-  "extends": ["config:recommended"],                    // https://docs.renovatebot.com/presets-config/#configrecommended
-  "timezone": "Asia/Tokyo",
-  "dependencyDashboard": true,                          // Whether to create a "Dependency Dashboard" issue in the repository.
-  "dependencyDashboardAutoclose": true,                 // Set to true to let Renovate close the Dependency Dashboard issue if there are no more updates.
-  "labels": ["dependencies"],                           // Labels to set in Pull Request.
-  "baseBranches": ["main"],
-  "branchPrefix": "renovate/",
-  "enabledManagers": [                                  // list of package managers
-    "dockerfile",
-    "gitlabci",
-    "gitlabci-include",
-    "gradle",
-    "gradle-wrapper"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',                         // Ref: https://docs.renovatebot.com/configuration-options
   ],
-  "separateMajorMinor": true,                           // create a separate branch/PR if both minor and major version updates exist
-  "rangeStrategy": "pin",                               // convert ranges to exact versions
-  "packageRules": [
+  timezone: 'Asia/Tokyo',
+  dependencyDashboard: true,                      // Whether to create a "Dependency Dashboard" issue in the repository.
+  dependencyDashboardAutoclose: true,             // Set to true to let Renovate close the Dependency Dashboard issue if there are no more updates.
+  labels: [                                       // Labels to set in Pull Request.
+    'dependencies',
+  ],
+  baseBranches: [
+    'main',
+  ],
+  branchPrefix: 'renovate/',
+  enabledManagers: [                              // list of package managers
+    'dockerfile',
+    'gitlabci',
+    'gitlabci-include',
+    'gradle',
+    'gradle-wrapper',
+  ],
+  separateMajorMinor: true,                       // create a separate branch/PR if both minor and major version updates exist
+  rangeStrategy: 'pin',                           // convert ranges to exact versions
+  packageRules: [
     {
-      "matchUpdateTypes": ["patch", "pin", "digest"],
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true
+      matchUpdateTypes: [
+        'patch',
+        'pin',
+        'digest',
+      ],
+      automerge: true,
+      automergeType: 'pr',
+      platformAutomerge: true,
     },
     {
-      "groupName": "Android Gradle Plugin",
-      "matchDepNames": ["com.android.application", "com.android.library"]
+      groupName: 'Android Gradle Plugin',
+      matchDepNames: [
+        'com.android.application',
+        'com.android.library',
+      ],
     },
     {
-      "groupName": "Android Jetpack Compose",
-      "matchPackagePatterns": ["^androidx.compose"]
+      groupName: 'Android Jetpack Compose',
+      matchPackageNames: [
+        '/^androidx.compose/',
+      ],
     },
     {
-      "groupName": "Android Lifecycle",
-      "matchPackagePatterns": ["^androidx.lifecycle"]
+      groupName: 'Android Lifecycle',
+      matchPackageNames: [
+        '/^androidx.lifecycle/',
+      ],
     },
     {
-      "groupName": "Kotlin coroutines",
-      "matchPackagePatterns": ["^org.jetbrains.kotlinx:kotlinx-coroutines"]
+      groupName: 'Kotlin coroutines',
+      matchPackageNames: [
+        '/^org.jetbrains.kotlinx:kotlinx-coroutines/',
+      ],
     },
     {
-      "groupName": "Hilt",
-      "matchPackagePatterns": ["^com.google.dagger:hilt", "^androidx.hilt:hilt"]
+      groupName: 'Hilt',
+      matchPackageNames: [
+        '/^com.google.dagger:hilt/',
+        '/^androidx.hilt:hilt/',
+      ],
     },
     {
-      "groupName": "Android Navigation",
-      "matchPackagePatterns": ["^androidx.navigation"]
+      groupName: 'Android Navigation',
+      matchPackageNames: [
+        '/^androidx.navigation/',
+      ],
     },
     {
-      "groupName": "Kotest",
-      "matchPackagePatterns": ["^io.kotest:kotest"]
+      groupName: 'Kotest',
+      matchPackageNames: [
+        '/^io.kotest:kotest/',
+      ],
     },
     {
-      "groupName": "Dokka",
-      "matchPackagePatterns": ["^org.jetbrains.dokka"]
-    }
-  ]
+      groupName: 'Dokka',
+      matchPackageNames: [
+        '/^org.jetbrains.dokka/',
+      ],
+    },
+  ],
 }
