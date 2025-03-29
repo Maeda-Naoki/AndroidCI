@@ -71,7 +71,7 @@ RUN addgroup -g ${GID} ${GroupName} && \
 # Install dependencies
 RUN apk update && apk --no-cache add \
     gcompat=1.1.0-r4    \
-    libgcc=13.2.1_git20240309-r0
+    libgcc=13.2.1_git20240309-r1
 
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
