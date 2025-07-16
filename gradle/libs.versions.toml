@@ -16,7 +16,7 @@ androidx-hilt				= "1.2.0"
 jetpack-compose-bom 		= "2025.06.01"
 compose-material-icons		= "1.7.8"
 ksp                         = "2.2.0-2.0.2"
-lifecycle 					= "2.9.1"
+lifecycle 					= "2.9.2"
 navigation					= "2.9.1"
 
 ## Test Implementation
