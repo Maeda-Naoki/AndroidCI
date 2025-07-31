@@ -24,7 +24,7 @@ kotest						= "5.9.1"
 
 ## Android Test Implementation
 androidx-test-ext-junit 	= "1.2.1"
-espresso-core 				= "3.6.1"
+espresso-core 				= "3.7.0"
 
 
 [libraries]
