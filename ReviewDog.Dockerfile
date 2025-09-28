@@ -8,7 +8,7 @@ LABEL version="1.0.0"
 # Docker image build args
 ## ReviewDog args
 ### Installer URL
-ARG REVIEWDOG_INSTALLER_DL_URL="https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh"
+ARG REVIEWDOG_INSTALLER_DL_URL="https://raw.githubusercontent.com/reviewdog/reviewdog/fd59714416d6d9a1c0692d872e38e7f8448df4fc/install.sh"
 
 ### ReviewDog version
 ARG REVIEWDOG_VERSION="0.20.3"
