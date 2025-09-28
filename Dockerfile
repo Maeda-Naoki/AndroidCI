@@ -17,10 +17,10 @@ ARG ANDROID_SDK_TOOLS="13114758"
 ARG ANDROID_SDK_ROOT="/android-sdk-linux"
 
 # Install dependencies
-RUN apk update && apk --no-cache add \
-    wget=1.24.5-r0  \
-    tar=1.35-r2     \
-    unzip=6.0-r14
+RUN dnf install -y \
+    wget-1.21.3-1.amzn2023.0.4 \
+    unzip-6.0-57.amzn2023.0.2 \
+    && dnf clean all
 
 # Download Android SDK
 RUN wget --quiet --output-document=android-sdk.zip "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip" && \
@@ -63,15 +63,16 @@ ENV ANDROID_SDK_ROOT="/android-sdk-linux"
 ### General
 ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools"
 
-# Add build user (Non-root user)
-RUN addgroup -g ${GID} ${GroupName} && \
-    adduser --disabled-password \
-    -u ${UID} -G ${GroupName} -h ${UserHomeDir} ${UserName}
-
 # Install dependencies
-RUN apk update && apk --no-cache add \
-    gcompat=1.1.0-r4    \
-    libgcc=13.2.1_git20240309-r1
+RUN dnf install -y \
+    shadow-utils-4.9-12.amzn2023.0.4 \
+    findutils-4.8.0-2.amzn2023.0.2 \
+    && dnf clean all
+
+# Add build user (Non-root user)
+RUN groupadd -g ${GID} ${GroupName} && \
+    useradd -l -u ${UID} -G ${GroupName} -d ${UserHomeDir} ${UserName} && \
+    usermod -L ${UserName}
 
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
