@@ -11,7 +11,7 @@ LABEL version="1.0.0"
 ARG REVIEWDOG_INSTALLER_DL_URL="https://raw.githubusercontent.com/reviewdog/reviewdog/fd59714416d6d9a1c0692d872e38e7f8448df4fc/install.sh"
 
 ### ReviewDog version
-ARG REVIEWDOG_VERSION="0.20.3"
+ARG REVIEWDOG_VERSION="0.21.0"
 
 # Install dependencies
 RUN apk update && apk --no-cache add \
