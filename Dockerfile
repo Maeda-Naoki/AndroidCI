@@ -17,9 +17,13 @@ ARG ANDROID_SDK_TOOLS="13114758"
 ARG ANDROID_SDK_ROOT="/android-sdk-linux"
 
 # Install dependencies
-RUN dnf install -y \
+RUN echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf && \
+    echo "fastestmirror=True" >> /etc/dnf/dnf.conf && \
+    dnf install -y \
     wget-1.21.3-1.amzn2023.0.4 \
     unzip-6.0-57.amzn2023.0.2 \
+    --setopt=install_weak_deps=False \
+    --nodocs \
     && dnf clean all
 
 # Download Android SDK
@@ -64,9 +68,13 @@ ENV ANDROID_SDK_ROOT="/android-sdk-linux"
 ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools"
 
 # Install dependencies
-RUN dnf install -y \
+RUN echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf && \
+    echo "fastestmirror=True" >> /etc/dnf/dnf.conf && \
+    dnf install -y \
     shadow-utils-4.9-12.amzn2023.0.4 \
     findutils-4.8.0-2.amzn2023.0.2 \
+    --setopt=install_weak_deps=False \
+    --nodocs \
     && dnf clean all
 
 # Add build user (Non-root user)
