@@ -43,7 +43,7 @@ FROM amazoncorretto:25.0.0-al2023
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
-LABEL version="1.2.0"
+LABEL version="1.3.0"
 
 # Docker image build args
 ## Build user setting
