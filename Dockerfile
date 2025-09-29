@@ -7,7 +7,7 @@ FROM amazoncorretto:25.0.0-al2023 AS setup
 ARG ANDROID_COMPILE_SDK="36"
 
 ### Android SDK Build-Tools version
-ARG ANDROID_BUILD_TOOLS="36.0.0"
+ARG ANDROID_BUILD_TOOLS="36.1.0"
 
 ### Command-line tools version
 #### Ref : https://developer.android.com/studio#downloads
