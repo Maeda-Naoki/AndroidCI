@@ -1,5 +1,5 @@
 # Setup Docker image
-FROM amazoncorretto:21.0.8-alpine3.20 AS setup
+FROM amazoncorretto:25.0.0-al2023 AS setup
 
 # Docker image build args
 ## Android SDK setting
@@ -17,10 +17,14 @@ ARG ANDROID_SDK_TOOLS="13114758"
 ARG ANDROID_SDK_ROOT="/android-sdk-linux"
 
 # Install dependencies
-RUN apk update && apk --no-cache add \
-    wget=1.24.5-r0  \
-    tar=1.35-r2     \
-    unzip=6.0-r14
+RUN echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf && \
+    echo "fastestmirror=True" >> /etc/dnf/dnf.conf && \
+    dnf install -y \
+    wget-1.21.3-1.amzn2023.0.4 \
+    unzip-6.0-57.amzn2023.0.2 \
+    --setopt=install_weak_deps=False \
+    --nodocs \
+    && dnf clean all
 
 # Download Android SDK
 RUN wget --quiet --output-document=android-sdk.zip "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip" && \
@@ -39,11 +43,11 @@ RUN yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_SD
 # =================================================================================================
 
 # Base Docker image
-FROM amazoncorretto:21.0.8-alpine3.20
+FROM amazoncorretto:25.0.0-al2023
 
 # Metadata of Docker image
 LABEL maintainer="maeda.naoki.md9@gmail.com"
-LABEL version="1.2.0"
+LABEL version="1.3.0"
 
 # Docker image build args
 ## Build user setting
@@ -63,15 +67,20 @@ ENV ANDROID_SDK_ROOT="/android-sdk-linux"
 ### General
 ENV PATH="$PATH:${ANDROID_HOME}/cmdline-tools/bin:${ANDROID_HOME}/platform-tools"
 
-# Add build user (Non-root user)
-RUN addgroup -g ${GID} ${GroupName} && \
-    adduser --disabled-password \
-    -u ${UID} -G ${GroupName} -h ${UserHomeDir} ${UserName}
-
 # Install dependencies
-RUN apk update && apk --no-cache add \
-    gcompat=1.1.0-r4    \
-    libgcc=13.2.1_git20240309-r1
+RUN echo "max_parallel_downloads=10" >> /etc/dnf/dnf.conf && \
+    echo "fastestmirror=True" >> /etc/dnf/dnf.conf && \
+    dnf install -y \
+    shadow-utils-4.9-12.amzn2023.0.4 \
+    findutils-4.8.0-2.amzn2023.0.2 \
+    --setopt=install_weak_deps=False \
+    --nodocs \
+    && dnf clean all
+
+# Add build user (Non-root user)
+RUN groupadd -g ${GID} ${GroupName} && \
+    useradd -l -u ${UID} -G ${GroupName} -d ${UserHomeDir} ${UserName} && \
+    usermod -L ${UserName}
 
 # Copy Android SDK directory
 COPY --from=setup --chown=${UID}:${GID} ${ANDROID_HOME} ${ANDROID_HOME}
