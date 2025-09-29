@@ -4,10 +4,10 @@ FROM amazoncorretto:25.0.0-al2023 AS setup
 # Docker image build args
 ## Android SDK setting
 ### Compile SDK version
-ARG ANDROID_COMPILE_SDK="35"
+ARG ANDROID_COMPILE_SDK="36"
 
 ### Android SDK Build-Tools version
-ARG ANDROID_BUILD_TOOLS="36.0.0"
+ARG ANDROID_BUILD_TOOLS="36.1.0"
 
 ### Command-line tools version
 #### Ref : https://developer.android.com/studio#downloads
