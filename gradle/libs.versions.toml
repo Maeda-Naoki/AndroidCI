@@ -1,6 +1,6 @@
 [versions]
 # Plugin
-android-gradle-plugin 		= "8.13.0"
+android-gradle-plugin 		= "8.13.1"
 kotlin 						= "2.2.21"
 ktlint 						= "13.1.0"
 dokka						= "2.1.0"
