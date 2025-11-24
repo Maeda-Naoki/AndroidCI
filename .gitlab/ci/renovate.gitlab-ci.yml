@@ -1,6 +1,6 @@
 renovate:
   stage: dependency
-  image: renovate/renovate:42.19.3-full
+  image: renovate/renovate:42.19.6-full
   variables:
     RENOVATE_PLATFORM: gitlab
     RENOVATE_ENDPOINT: $CI_API_V4_URL
