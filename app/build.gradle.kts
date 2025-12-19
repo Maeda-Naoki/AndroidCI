@@ -1,9 +1,17 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
 	id("com.android.application")
 	id("com.google.dagger.hilt.android")
 	id("com.google.devtools.ksp")
 	id("org.jetbrains.kotlin.android")
 	id("org.jetbrains.kotlin.plugin.compose")
+}
+
+kotlin {
+	compilerOptions {
+		jvmTarget = JvmTarget.fromTarget("25")
+	}
 }
 
 android {
@@ -65,12 +73,8 @@ android {
 	}
 
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_11
-		targetCompatibility = JavaVersion.VERSION_11
-	}
-
-	kotlinOptions {
-		jvmTarget = "11"
+		sourceCompatibility = JavaVersion.VERSION_25
+		targetCompatibility = JavaVersion.VERSION_25
 	}
 
 	lint {
