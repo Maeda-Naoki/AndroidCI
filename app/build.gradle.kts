@@ -10,7 +10,7 @@ plugins {
 
 kotlin {
 	compilerOptions {
-		jvmTarget = JvmTarget.fromTarget("25")
+		jvmTarget = JvmTarget.JVM_25
 	}
 }
 
