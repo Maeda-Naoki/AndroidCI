@@ -10,7 +10,7 @@ plugins {
 
 kotlin {
 	compilerOptions {
-		jvmTarget = JvmTarget.fromTarget("25")
+		jvmTarget = JvmTarget.JVM_25
 	}
 }
 
@@ -100,10 +100,6 @@ android {
 		compose = true
 		viewBinding = true
 	}
-}
-
-composeCompiler {
-	enableStrongSkippingMode = true
 }
 
 dependencies {
